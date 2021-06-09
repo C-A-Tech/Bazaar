@@ -1,5 +1,5 @@
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
-import SignIn from './SignIn'
+import {Link } from "react-router-dom";
+
 
 function LandingPage() {
   
