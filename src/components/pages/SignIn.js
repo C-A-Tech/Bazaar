@@ -11,7 +11,7 @@ function SignIn() {
 		event.preventDefault();
 		const userJson = JSON.stringify(user);
 		await axios
-			.post('http://localhost:5000/api/users/login', userJson, {
+			.post('https://bazaar-server.herokuapp.com/api/users/login', userJson, {
 				headers: {
 					'Content-Type': 'application/json'
 				}
