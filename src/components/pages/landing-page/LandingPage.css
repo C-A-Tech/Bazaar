@@ -1,0 +1,81 @@
+.LandingPage {
+  height: 100%;
+  background-image: url(./src/background-image.png);
+  background-position: center;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  
+}
+
+.logo img {
+  width: 60%;
+  min-width: 350px;
+}
+
+.signup-in{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.signin, .signup{
+  width: 50%;
+  min-width: 250px;
+}
+
+.LandingPage button {
+  width: 90%;
+  height: 5vh;
+  font-size: medium;
+  margin-bottom: 5vh ;
+  background-color: rgba(0, 0, 0, 0.459);
+  color: white;
+  border: none;
+}
+
+.LandingPage button:hover{ 
+  animation: pulse 250ms ;
+  animation-timing-function: linear;   
+  background-color: rgba(253, 253, 253, 0.459);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* buttons are bigger in mobile views */
+@media (max-width: 830px) {
+  .LandingPage button {
+    width: 90%;
+    height: 15vh;
+    margin-bottom: 5vh ;
+    background-color: rgba(0, 0, 0, 0.459);
+    color: white;
+    border: none;
+  }
+}
+
+/* display oreintates coreectly for landscape mode */
+@media (max-height: 480px) {
+  .LandingPage {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .signup-in{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+  
+  }
+}
