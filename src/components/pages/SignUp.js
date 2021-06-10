@@ -23,11 +23,12 @@ function SignUp() {
 			.then((res) => res.data)
 			.then((data) => data.msg)
 			.then((msg) => {
+        // use this to create flash error messages
 				Array.isArray(msg) ? printErrors(msg) : console.log(msg);
 			});
 
 
-    //  <Redirect to="/" />
+     <Redirect to="/signin" />
 	};
 
   
