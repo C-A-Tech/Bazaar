@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import cookies from '../Cookies';
 //import axios from 'axios';
 
 function SignUp() {
@@ -9,7 +10,6 @@ function SignUp() {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
   // const [dob, setDob] = useState('');
-
 
   const submit = (event) => {
     event.preventDefault();
@@ -22,6 +22,7 @@ function SignUp() {
     //   dob: dob
     // }
 
+  
     console.log(user)
     console.log(JSON.stringify(user))
     
@@ -32,7 +33,7 @@ function SignUp() {
     })
     .then(res => res.json())
     .then(json => console.log(json))
-
+    
     //<Redirect to="/somewhere/else" />
     
     

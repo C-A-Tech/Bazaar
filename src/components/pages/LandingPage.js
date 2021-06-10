@@ -4,7 +4,7 @@ import {Link } from "react-router-dom";
 function LandingPage() {
   
   return (
-    <div className="main-container">
+    <div className="landing-page-container">
   
     <div className="signin">
       <Link to="/signin">Sign In</Link>
