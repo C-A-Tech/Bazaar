@@ -1,0 +1,20 @@
+.Navbar {
+  background-color: grey;
+  min-height: 50px;
+  display: flex;
+  justify-content: flex-end
+}
+
+.Navbar a {
+  display: flex;
+  text-decoration: none;
+}
+
+.Navbar button {
+  border: none;
+  background: transparent;
+}
+
+.Navbar button:hover {
+color: white;
+}
