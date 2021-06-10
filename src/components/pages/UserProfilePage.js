@@ -36,7 +36,9 @@ function UserProfilePage() {
 
   return (
     <div className="profile-container">
-      
+
+      {/* ..................Displaying User Info....................................... */}
+
       <div className="profile-image">
         <image src=""></image>
       </div>
@@ -53,8 +55,9 @@ function UserProfilePage() {
       <div className="request-a-stall">
         <button onClick={() => setmodalState(true)}> Request A Stall</button>
       </div>
+      {/* ...................Displaying User Info....................................... */}
 
-     {/* ......................................................... */}
+     {/* ..................Requesting a Stall (pop up form)....................................... */}
       <div className="stall-modal">
 
         <Modal 
@@ -88,7 +91,7 @@ function UserProfilePage() {
 
       </div>
       
-          
+      {/* ..................Requesting a Stall (pop up form)....................................... */}
     
     </div>
   )
