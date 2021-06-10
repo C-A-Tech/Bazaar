@@ -1,34 +1,30 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './sections.css';
+import axios from 'axios';
 
-function Sections() {
-  // const [sections, setSections] = useState();
-  const notSections = ["Sections 1", "Section 2", "Section 3"]
-  
+const useSections = () => {
+	const [sections, setSections] = useState([]);
 
-	// const allSections = async () => {
-	// 	const res = await fetch('https://bazaar-server.herokuapp.com/api/sections', {
-  //     method: 'GET',
-  //   });
+	const fetchSections = async () => {
+		await axios
+			.get('https://bazaar-server.herokuapp.com/api/sections')
+			.then((res) => setSections(res.data));
+	};
 
-  //   const json = await res.json();
+	useEffect(() => fetchSections(), []);
+	return [sections];
+};
 
-  //   setSections(json.data);
+const Sections = () => {
+	const [sections] = useSections();
 
-	// };
+	return (
+		<div>
+			{sections.map((section) => {
+				return <div className='eachSection'>{section.title}</div>;
+			})}
+		</div>
+	);
+};
 
-  
-  // allSections()
-  // console.log(sections)
-  return (
-    <div>
-      {notSections.map(section => {
-        return(
-          <div className="eachSection">{section}</div>
-        )}
-      )}
-    </div>
-  )
-}
-
-export default Sections
+export default Sections;
