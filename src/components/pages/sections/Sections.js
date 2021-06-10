@@ -6,19 +6,12 @@ const useSections = () => {
 	const [sections, setSections] = useState([]);
 
 	const fetchSections = async () => {
-		const res = await fetch(
-			'https://bazaar-server.herokuapp.com/api/sections',
-			{
-				method: 'GET'
-			}
-		);
-		const data = await res.json();
-
-		setSections(data);
+		await axios
+			.get('https://bazaar-server.herokuapp.com/api/sections')
+			.then((res) => setSections(res.data));
 	};
 
 	useEffect(() => fetchSections(), []);
-
 	return [sections];
 };
 
@@ -32,6 +25,6 @@ const Sections = () => {
 			})}
 		</div>
 	);
-}
+};
 
 export default Sections;
