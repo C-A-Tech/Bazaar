@@ -3,9 +3,7 @@ import { Redirect } from 'react-router';
 import axios from 'axios';
 
 function SignIn() {
-	// const [email, setEmail] = useState('');
-	// const [password, setPassword] = useState('');
-  const [user, setUser] = useState('');
+	const [user, setUser] = useState('');
 
 	const submit = async (event) => {
 		event.preventDefault();
@@ -18,14 +16,16 @@ function SignIn() {
 			})
 			.then((res) => res.data)
 			.then((data) => {
-        if(data.msg){
-          // use this to create a flash message
-          console.log(data.msg)
-        } else {
-          // use the below to implement sesions
-          console.log(data)
-        }
-      })
+				if (data.msg) {
+					// use this to create a flash message
+					console.log(data.msg);
+				} else {
+					// use the below to implement sesions
+					console.log(data);
+				}
+			});
+
+      <Redirect to="/" />
 	};
 
 	return (
