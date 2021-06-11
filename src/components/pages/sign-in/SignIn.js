@@ -5,10 +5,13 @@ import './Signin.css'
 import logo from './src/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import Cookies from 'universal-cookie';
 
 import axios from 'axios';
 
+
 function SignIn() {
+	const cookies = new Cookies();
 	const [user, setUser] = useState('');
 
 	const submit = async (event) => {
@@ -27,7 +30,8 @@ function SignIn() {
 					console.log(data.msg);
 				} else {
 					// use the below to implement sesions
-					console.log(data);
+					cookies.set('user', data, { path: '/' });
+					console.log(cookies.get('user'));
 				}
 			});
 
