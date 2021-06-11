@@ -18,13 +18,13 @@ function App() {
         <Router>
           <AnimatePresence  exitBeforeEnter>
             <Switch>
-              <Route path="/user/:id" exact component={UserProfilePage}/>
               <Route path="/signup" exact component={SignUp}/>  
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
               <div className="routes-with-navbar">
                 <Navbar />
                 <Route path="/sections" exact component={Sections}/> 
+                <Route path="/user/:id" exact component={UserProfilePage}/>
               </div> 
             </Switch>
           </AnimatePresence>
