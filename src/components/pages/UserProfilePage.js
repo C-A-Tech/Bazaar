@@ -79,6 +79,7 @@ function UserProfilePage() {
             <option value="carpets_and_rugs">Carpets and Rugs</option>
             <option value="ceramics">Ceramics</option>
             <option value="clothes">Clothes</option>
+            <option value="jewellery">Electronics</option>
             <option value="furnitures">Furnitures</option>
             <option value="home_decor">Home Decor</option>
             <option value="jewellery">Jewellery</option>
