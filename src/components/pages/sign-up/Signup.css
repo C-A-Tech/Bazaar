@@ -1,0 +1,107 @@
+.Signup {
+  height: 100%;
+  background-image: url(./src/darker-background-image.png);
+  background-position: center;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  
+}
+
+
+.Signup .logo {
+ width: 60%;
+}
+
+.Signup .logo img {
+  width: 80%;
+}
+
+.Signup .form-space {
+  
+  width: 40%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content:center;
+  box-shadow: rgba(0, 0, 0, 0.63) 50px 60px 20px -7px; 
+}
+
+.Signup .form-space .home-icon {
+  
+  font-size: 30px;
+  margin-top: 5vh;
+}
+
+.Signup .form-space .home-icon a {
+  color: #B1B1B1; 
+}
+
+
+.Signup form {
+  width: 60%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Signup form span, header{
+  width: 100%;
+}
+
+.Signup form h1, h2{
+  font-family: 'Caveat', cursive;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+}
+.Signup form h1{
+  font-weight: 700;
+  font-size: 70px;
+  margin-top: 4vh;
+  background: -webkit-linear-gradient(rgb(241, 99, 17), rgb(224, 154, 23));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Signup form h2{
+  font-weight: 400;
+  font-size: 40px;
+  margin-bottom: 5vh;
+  color: #005FCC;
+}
+
+.Signup form input {
+  width: 100%;
+  height: 4vh;
+
+  font-size: 20px;
+  text-indent: 5%;
+  margin-bottom: 2vh;
+  border-radius: 20px;
+  border: solid #EAEAEA 2px;
+}
+
+.Signup form input:focus-visible {
+  outline: none;
+  border: solid #005FCC 2px;
+}
+
+.Signup form button {
+  width: 80%;
+  height: 4vh;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+}
+
+.Signup form button:hover {
+ background-color: #005FCC;
+ color: white;
+}
