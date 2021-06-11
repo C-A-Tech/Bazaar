@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import {motion} from "framer-motion";
 import './Signin.css'
 import logo from './src/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,11 +33,12 @@ function SignIn() {
 
       <Redirect to="/" />
 	};
-
+	
+	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1]};
 	return (
-		<div className="Signin">
+		<motion.div initial='initial' animate='animate' exit='exit' className="Signin">
 			
-			<div className="form-space">
+			<motion.div initial={{opacity:1, position:'relative', left:'-50%'}} animate={{opacity:1, position:'relative', left:'0', transition: {delay:0.001, ...transition}}} className="form-space">
 				<div className="home-icon">
 					<a href="/"><FontAwesomeIcon icon={faHome} /></a>
 				</div>
@@ -64,11 +66,11 @@ function SignIn() {
 						<button type='submit'>Sign In</button>
 					</span>
 				</form>
-			</div>			
-			<div className="logo">
+			</motion.div>			
+			<motion.div initial={{width: '75%', position:'absolute', x:'16.7%', y:'-9%'}} animate={{width: '59%', x:'69.5%', y:'1%', transition: {delay:0.002, ...transition}}} className="logo">
         <img src={logo}></img>
-      </div>
-		</div>
+      </motion.div>
+		</motion.div>
 	);
 }
 
