@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router';
 import { FaTimes } from 'react-icons/fa'
 
+
 Modal.setAppElement('#root')
 function UserProfilePage() {
   let id;
