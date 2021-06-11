@@ -110,3 +110,29 @@
  background-color: #005FCC;
  color: white;
 }
+
+@media (max-width: 830px) {
+  
+  .Signin .logo {
+    visibility: hidden;
+    height: 0;
+    overflow:hidden
+   }
+
+   .Signin .form-space .home-icon {
+    font-size: 30px;
+    margin-left: -5vh;
+  }
+   .Signin .form-space {
+    width: 100%;
+    height: 100vh;
+   }
+
+   .Signin form {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
