@@ -8,6 +8,7 @@ import SignIn from './components/pages/sign-in/SignIn';
 import SignUp from './components/pages/sign-up/SignUp';
 import Sections from './components/pages/sections/Sections';
 import PageNotFound from './components/pages/PageNotFound';
+import UserProfilePage from './components/pages/UserProfilePage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Router>
           <AnimatePresence  exitBeforeEnter>
             <Switch>
+              <Route path="/user/:id" exact component={UserProfilePage}/>
               <Route path="/signup" exact component={SignUp}/>  
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
