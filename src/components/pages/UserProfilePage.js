@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import cookies from '../Cookies';
 import { Redirect } from 'react-router';
+import { FaTimes } from 'react-icons/fa'
 
 Modal.setAppElement('#root')
 function UserProfilePage() {
@@ -65,7 +66,10 @@ function UserProfilePage() {
           onRequestClose={() => setmodalState(false)} 
           style={
             { overlay: {backgroundColor: 'grey'} }
-          }>
+          } 
+          
+          >
+          <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
           <input type="text" placeholder="Enter Stall Name"/> <br /><br />
           
           <select>
