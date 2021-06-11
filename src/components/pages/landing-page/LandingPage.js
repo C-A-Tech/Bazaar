@@ -1,11 +1,12 @@
 import {Link } from "react-router-dom";
+import {motion} from "framer-motion"
 import './LandingPage.css'
 import logo from './src/logo.png'
 
 function LandingPage() {
   
   return (
-    <div className="LandingPage">
+    <div className="LandingPage" >
       <div className="logo">
         <img src={logo}></img>
       </div>
