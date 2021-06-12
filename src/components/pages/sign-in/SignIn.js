@@ -1,41 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import {motion} from "framer-motion";
 import './Signin.css'
 import logo from './src/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import Cookies from 'universal-cookie';
 import axios from 'axios';
 
 
 function SignIn() {
 	const [user, setUser] = useState('');
+  const cookies = new Cookies();
+  const [signedInUser, setSignedInUser] = useState('no user')
   const [redirect, setRedirect] = useState(false)
 
 	const submit = async (event) => {
 		event.preventDefault();
 		const userJson = JSON.stringify(user);
-		await axios
-			.post('https://bazaar-server.herokuapp.com/api/users/login', userJson, {
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-			.then((res) => res.data)
-			.then((data) => {
-				if (data.msg) {
-					// use this to create a flash message
-					console.log(data.msg);
-				} else {
-					// use the below to implement sesions
-					console.log(data);
-          setRedirect(true)
-				}
-			});
+    
+    const readUser = async () => {  
+      await axios
+        .post('https://bazaar-server.herokuapp.com/api/users/login', userJson, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then((res) => res.data)
+        .then((data) => {
+          if (data.msg) {
+            // use this to create a flash message
+            console.log(data.msg);
+          } else {
+            // use the below to implement sesions
+            console.log(data);
+            cookies.set('user', data, { path: '/' }); // stores user's details in cookies
+            
+          }
+        });
+    } 
 
-      <Redirect to="/" />
+    // assigns the cookies data in a variable called signedInUser
+    const useCookies = () => {
+      setSignedInUser(cookies.get('user'));
+      useEffect(() => setSignedInUser(), []);
+      console.log(signedInUser)
+      return [signedInUser]
+    } 
+
+    readUser();
 	};
 	
+  console.log(signedInUser)
+
+
   if (redirect) {
     return <Redirect to="/home" />
   }
