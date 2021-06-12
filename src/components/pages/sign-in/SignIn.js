@@ -5,11 +5,12 @@ import './Signin.css'
 import logo from './src/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-
 import axios from 'axios';
+
 
 function SignIn() {
 	const [user, setUser] = useState('');
+  const [redirect, setRedirect] = useState(false)
 
 	const submit = async (event) => {
 		event.preventDefault();
@@ -28,14 +29,19 @@ function SignIn() {
 				} else {
 					// use the below to implement sesions
 					console.log(data);
+          setRedirect(true)
 				}
 			});
 
       <Redirect to="/" />
 	};
 	
+  if (redirect) {
+    return <Redirect to="/home" />
+  }
 	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1]};
 	return (
+   
 		<motion.div initial='initial' animate='animate' exit='exit' className="Signin">
 			
 			<motion.div initial={{opacity:1, position:'relative', left:'-50%'}} animate={{opacity:1, position:'relative', left:'0', transition: {delay:0.001, ...transition}}} className="form-space">
