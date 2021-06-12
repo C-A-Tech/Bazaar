@@ -1,0 +1,94 @@
+/* This is the mobile view */
+.Navbar {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  background-color: whitesmoke;
+  border-top: grey solid 2px;
+  height: 7vh;
+  max-height: 7vh;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.Mobile-top-header {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  height: 5vh;
+  max-height: 5vh;
+  width: 100vw;
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Navbar .logo {
+  display: none;
+}
+
+.Navbar .nav-icons {
+  visibility: visible;
+  font-size: 30px;
+  color:red;
+  margin: auto;
+}
+
+.Navbar .nav-buttons {
+  display: none;
+}
+
+
+.Navbar a {
+  display: flex;
+  text-decoration: none;
+}
+
+.Navbar button {
+  border: none;
+  background: transparent;
+}
+
+.Navbar button:hover {
+color: white;
+}
+
+/*this is for the desktop view */
+
+@media (min-width: 650px) {
+  .Navbar {
+    position: fixed;
+    top: 0; 
+    background-color: red;
+    border-top: none;
+    border-bottom: grey solid 2px;
+    height: 8vh;
+    max-height: 8vh;
+    min-height:8vh;
+    width: 100vw;
+  }
+
+  .Mobile-top-header {
+    display: none;
+  }
+
+  .Navbar .container {
+    width: 1320px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .Navbar .logo {
+    display: unset;
+  }
+
+  .Navbar .nav-icons {
+    display: none;
+  }
+  
+  .Navbar .nav-buttons {
+    display: unset;
+  }
+
+}

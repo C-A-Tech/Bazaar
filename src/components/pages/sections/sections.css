@@ -1,9 +1,0 @@
-.eachSection {
-  background-color: rgb(204, 155, 152);
-  min-height: 200px;
-  max-width: 540px;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
