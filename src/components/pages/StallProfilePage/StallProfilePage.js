@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Products from '../../Products';
-import Stalls from '../../Stalls';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import RequestStall from '../../RequestStall/RequestStall';
-import './StallProfilePage.css'
+import './StallProfilePage.css';
 
 const cookies = new Cookies();
 
@@ -17,7 +16,7 @@ const useMyStalls = () => {
   
   const fetchMyStalls = async () => {
     await axios
-      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${x}`)
+      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${signedInUser._id}`)
       .then((res) => setMyStalls(res.data))
   };
   useEffect(() => fetchMyStalls(), [])
