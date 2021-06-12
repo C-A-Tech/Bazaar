@@ -1,9 +1,41 @@
+.homeBody {
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+
+.homeContainer {
+  position: relative;
+  top: 5vh;
+  height: 91vh;
+  width: 100vw;
+  overflow: scroll;
+  background-color: teal;
+}
+
+#Sections {
+  max-height: 20vh;
+  background-color: yellow;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
 .eachSection {
   background-color: rgb(204, 155, 152);
-  min-height: 200px;
+  height: 10vh;
+  width: 10vh;
   max-width: 540px;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  margin: 20px;
+  display: inline-block;
 }
+
+
+@media (min-width: 650px) {
+  
+  .homeContainer {
+    position: relative;
+    top: 8vh;
+    width: 1370px;
+  }
+}  

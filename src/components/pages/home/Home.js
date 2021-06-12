@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './sections.css';
+import './Home.css';
 import axios from 'axios';
 
 const useSections = () => {
@@ -15,16 +15,20 @@ const useSections = () => {
 	return [sections];
 };
 
-const Sections = () => {
+const Home = () => {
 	const [sections] = useSections();
 
 	return (
-		<div>
-			{sections.map((section) => {
-				return <div className='eachSection'>{section.title}</div>;
-			})}
+		<div className='homeBody'>
+      <div className='homeContainer'>
+        <div id='Sections'>
+        {sections.map((section) => {
+          return <div className='eachSection'>{section.title}</div>;
+        })}
+        </div>
+      </div>
 		</div>
 	);
 };
 
-export default Sections;
+export default Home;
