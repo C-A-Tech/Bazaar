@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react'; 
+import axios from 'axios';
 
-const products = [
-  { "id":1, "name": "Chinedu's Rugs", "description": "Fine rug", "section_id": 1 },
-  { "id":2, "name": "Chioma's Jugs", "description": "Best ceramic jugs on Bazaar", "section_id": 2  },
-  { "id":3, "name": "Chineye's plates", "description": "Ceramic plates ", "section_id": 2  }
-]
+const useProducts = () => {
+	const [products, setProducts] = useState([]);
 
+	const fetchProducts = async () => {
+		await axios
+			.get('https://bazaar-server.herokuapp.com/api/products')
+			.then((res) => setProducts(res.data));
+	};
 
+	useEffect(() => fetchProducts(), []);
+
+  console.log([products])
+
+	return [products];
+};
 
 function Products() {
+  const [products] = useProducts();
   return (
     <div>
       {products.map((product) => {
@@ -19,6 +29,7 @@ function Products() {
       })}
     </div>
   )
+  
 }
 
 export default Products
