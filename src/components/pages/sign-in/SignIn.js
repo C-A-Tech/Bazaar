@@ -18,8 +18,7 @@ function SignIn() {
 	const submit = async (event) => {
 		event.preventDefault();
 		const userJson = JSON.stringify(user);
-    
-    const readUser = async () => {  
+
       await axios
         .post('https://bazaar-server.herokuapp.com/api/users/login', userJson, {
           headers: {
@@ -32,31 +31,18 @@ function SignIn() {
             // use this to create a flash message
             console.log(data.msg);
           } else {
-            // use the below to implement sesions
-            console.log(data);
-            cookies.set('user', data, { path: '/' }); // stores user's details in cookies
+            cookies.set('user', data, { path: '/' });
+            setRedirect(true)
             
           }
-        });
-    } 
-
-    // assigns the cookies data in a variable called signedInUser
-    const useCookies = () => {
-      setSignedInUser(cookies.get('user'));
-      useEffect(() => setSignedInUser(), []);
-      console.log(signedInUser)
-      return [signedInUser]
-    } 
-
-    readUser();
+        });    
 	};
-	
-  console.log(signedInUser)
 
 
   if (redirect) {
     return <Redirect to="/home" />
   }
+
 	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1]};
 	return (
    

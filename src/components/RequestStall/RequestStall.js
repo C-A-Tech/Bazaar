@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Modal from 'react-modal';
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaPlus } from 'react-icons/fa'
 
 Modal.setAppElement('#root')
 
@@ -11,7 +11,9 @@ function RequestStall() {
     <div>
 
       {/* .............................Button....................................... */}
-      <button className="request-a-stall" onClick={() => setmodalState(true)}> Request A Stall</button>
+      <div className="request-a-stall">
+        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } />
+      </div>
       {/* .............................Button....................................... */}
 
       {/* .............................Modal....................................... */}

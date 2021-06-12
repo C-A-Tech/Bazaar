@@ -1,0 +1,12 @@
+.myProducts {
+  border: purple;
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+#noStall{
+  margin: auto;
+  padding: 50px;
+  padding-top: 250px;
+}

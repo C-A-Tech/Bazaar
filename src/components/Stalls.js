@@ -18,10 +18,10 @@ const useStalls = () => {
   
 
 
-function Stalls() {
+function Stalls(props) {
   const [stalls] = useStalls();
  
-  console.log(stalls)
+  console.log(props)
   return (
     <div>
       {stalls.map((stall) => {

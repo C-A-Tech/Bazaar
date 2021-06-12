@@ -26,8 +26,8 @@ function Products(props) {
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
         (
         <div className="eachProduct"> 
-          <span className="eachProductName"> {filteredProduct.name} </span> <br />
-          <span className="eachProductDescription"> {filteredProduct.description} </span>
+          <span className="eachProductName"> <text style={{textTransform: 'capitalize'}}> {filteredProduct.name } </text> </span> <br /> <br />
+          <span className="eachProductDescription"> <text style={{textTransform: 'capitalize'}}> { filteredProduct.description } </text> </span>
         </div>
         ))
       }
