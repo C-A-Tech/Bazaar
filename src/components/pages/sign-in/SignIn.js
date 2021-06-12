@@ -53,7 +53,7 @@ function SignIn() {
 	
   console.log(signedInUser)
 
-=======
+
   if (redirect) {
     return <Redirect to="/home" />
   }
