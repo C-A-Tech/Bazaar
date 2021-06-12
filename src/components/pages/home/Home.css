@@ -37,6 +37,10 @@ justify-content: space-around;
   margin-bottom: 10px;
 }
 
+#eachStall .products {
+  font-size: x-small;
+  color: red;
+}
 
 @media (min-width: 650px) {
   

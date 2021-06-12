@@ -17,16 +17,20 @@ const useProducts = () => {
 	return [products];
 };
 
-function Products() {
+function Products(props) {
   const [products] = useProducts();
+  {console.log(props)
+  console.log(products)}
   return (
     <div>
-      {products.map((product) => {
-        return( <div className="eachProduct"> 
-          <span className="eachProductName"> {product.name} </span> <br />
-          <span className="eachProductDescription"> {product.description} </span>
-        </div>)
-      })}
+      {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
+        (
+        <div className="eachProduct"> 
+          <span className="eachProductName"> {filteredProduct.name} </span> <br />
+          <span className="eachProductDescription"> {filteredProduct.description} </span>
+        </div>
+        ))
+      }
     </div>
   )
   
