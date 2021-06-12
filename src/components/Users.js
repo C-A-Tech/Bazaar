@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Cookies from 'universal-cookie';
+
 
 
 const useUsers = () => {
@@ -14,9 +14,7 @@ const useUsers = () => {
   return [users]
 
 }
-const cookies = new Cookies();
-let loggedInUser = cookies.get('user');
-console.log(loggedInUser)
+
 
 function Users() {
   const [users] = useUsers();
@@ -33,5 +31,4 @@ function Users() {
     </div>
   )
 }
-
 export default Users
