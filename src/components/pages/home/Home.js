@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import axios from 'axios';
+import Stalls from '../../Stalls';
 
 const useSections = () => {
 	const [sections, setSections] = useState([]);
@@ -26,6 +27,9 @@ const Home = () => {
           return <div className='eachSection'>{section.title}</div>;
         })}
         </div>
+				<div className="Stalls">
+					<Stalls />
+				</div>
       </div>
 		</div>
 	);

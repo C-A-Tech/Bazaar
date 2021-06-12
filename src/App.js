@@ -9,8 +9,7 @@ import SignUp from './components/pages/sign-up/SignUp';
 import Home from './components/pages/home/Home';
 import PageNotFound from './components/pages/PageNotFound';
 import UserProfilePage from './components/pages/UserProfilePage';
-import Stalls from './components/Stalls';
-import Products from './components/Products'
+
 
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
             </Switch>
           </AnimatePresence>
         </Router>
-       <Products />
+       
       </div>
       
     
