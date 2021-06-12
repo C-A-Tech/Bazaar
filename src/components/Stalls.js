@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Products from './Products'
+import useProducts from '../hooks/products-api'
 
 const useStalls = () => {
   const [stalls, setStalls] = useState([]);
@@ -19,19 +20,20 @@ const useStalls = () => {
 
 function Stalls() {
   const [stalls] = useStalls();
-  
+  const [products] = useProducts("60c0d0e01be0426f8bcb3340")
   return (
     <div>
       {stalls.map((stall) => {
+        
         return (
           <div id="eachStall"> 
             <header> { stall.name } </header>
-            {/* {Products.map((product) => {
-              if(product.stall_id === stall.id){
-              return <div>Hello</div>
+            {products.map((product) => {
+              if(product.stall === stall.id){
+              return <div>{product.name}</div>
               }
             })
-            } */}
+            }
           </div>
         )
       })}
