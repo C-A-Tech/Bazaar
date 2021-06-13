@@ -17,17 +17,26 @@ justify-content: space-around;
 #Sections {
   max-height: 20vh;
   background-color: yellow;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   white-space: nowrap;
 }
 
 .eachSection {
-  background-color: rgb(204, 155, 152);
-  height: 10vh;
-  width: 10vh;
-  max-width: 540px;
-  margin: 20px;
+  width: 200px;
+  height: 100px;
+  max-width: 200px;
+  margin: 10px;
   display: inline-block;
+  overflow: hidden;
+
+}
+
+.eachSection h1 {
+  font-size: 1.5em;
+  color: white;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.349);
 }
 
 #eachStall {
@@ -49,4 +58,16 @@ justify-content: space-around;
     top: 8vh;
     width: 1370px;
   }
+  /* #Sections{
+    overflow-y: scroll;
+  }
+  #Sections::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+  #Sections::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, .5);
+} */
+
 }  

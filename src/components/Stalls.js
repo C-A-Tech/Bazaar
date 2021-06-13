@@ -32,16 +32,6 @@ function Stalls() {
             <div className="products">
             <Products stall={stall._id} />
             </div> 
-              {/* {products.map((product) => {
-              
-              )
-              // if(product.stall === stall.id){
-              // return (
-                
-              // )
-              // }
-            })
-            } */}
           </div>
         )
       })}
