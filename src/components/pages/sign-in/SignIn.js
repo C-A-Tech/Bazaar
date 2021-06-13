@@ -12,7 +12,6 @@ import axios from 'axios';
 function SignIn() {
 	const [user, setUser] = useState('');
   const cookies = new Cookies();
-  const [signedInUser, setSignedInUser] = useState('no user')
   const [redirect, setRedirect] = useState(false)
 
 	const submit = async (event) => {

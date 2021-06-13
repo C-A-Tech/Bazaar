@@ -9,8 +9,8 @@ Modal.setAppElement('#root')
 
 function RequestStall() {
   const [modalState, setmodalState] = useState(false);
-  const [newStall, setNewStall] = useState('');
-  const [products, setProducts] = useState([]);
+  const [newStall, setNewStall] = useState([]);
+  
   const cookies = new Cookies
 
   let signedInUser = cookies.get('user')
@@ -22,10 +22,9 @@ function RequestStall() {
 	};
 
 	const createStall = async (event) => {
-		event.preventDefault();
-		const userJson = JSON.stringify(newStall);
+		const newStallJson = JSON.stringify(newStall);
 		await axios
-			.post('https://bazaar-server.herokuapp.com/api/users/signup', userJson, {
+			.post('https://bazaar-server.herokuapp.com/api/stalls/create', newStallJson, {
 				headers: {
 					'Content-Type': 'application/json'
 				}
@@ -49,12 +48,12 @@ function RequestStall() {
 
       {/* .............................Modal....................................... */}
       <div className="stall-modal">
-
+        <form >
         <Modal 
           className="request-a-stall-modal"
           isOpen={modalState} 
           onRequestClose={() => setmodalState(false)} 
-          onSubmit= { setNewStall(setNewStall({ ...newStall, user: signedInUser._id }))}
+          onSubmit={createStall()}
           style={
             { overlay: {backgroundColor: 'grey'} }
           } 
@@ -65,19 +64,21 @@ function RequestStall() {
           <input 
             type="text" 
             placeholder="Enter Stall Name"
-            onChange={(e) => setNewStall((e) => setNewStall({...newStall, name: e.target.value}))}
+            onChange={(e) => setNewStall({...newStall, name: e.target.value})}
           /> 
           <br /><br />
 
-          <select  onChange={(e) => setNewStall((e) => setNewStall({...newStall, section: e.target.value}))}>
+          
+
+          <select  onChange={(e) => setNewStall({...newStall, section: e.target.value})}>
             <option default>Select an appropriate section</option>
 
             <option value="antiques" >Antiques</option>
             <option value="carpets_and_rugs">Carpets and Rugs</option>
             <option value="ceramics">Ceramics</option>
             <option value="clothes">Clothes</option>
-            <option value="jewellery">Electronics</option>
-            <option value="furnitures">Furniture</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
             <option value="home_decor">Home Decor</option>
             <option value="jewellery">Jewellery</option>
 
@@ -85,13 +86,14 @@ function RequestStall() {
 
           <input 
             type="file" 
-            onChange={(e) => setNewStall((e) => setNewStall({...newStall, image: e.target.value}))}
+            onChange={(e) => setNewStall({...newStall, image: e.target.value})}
           /> 
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick= {() => setNewStall({ ...newStall, user: signedInUser._id })}/>
         </Modal>
-
+        </form>
         
+        {console.log(newStall)}
           
         {/* .............................Modal....................................... */}
       </div>

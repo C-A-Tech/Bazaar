@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import RequestStall from '../../RequestStall/RequestStall';
 import './StallProfilePage.css';
+import ListProducts from '../../ListProducts/ListProducts';
 
 const cookies = new Cookies();
 
@@ -40,9 +41,14 @@ function StallProfilePage(props) {
               <Products stall={myStall._id} />
             </div>
  
+            
+
             </>
           }))
         } 
+        <div className="listProducts">
+          <ListProducts />
+        </div>
       </div>
       
     </div>
