@@ -22,9 +22,9 @@ function Products(props) {
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
         (
         <div className="eachProduct"> 
-          <span className="eachProductName"> <text style={{textTransform: 'capitalize'}}> {filteredProduct.name } </text> </span> <br /> <br />
-          <span className="eachProductDescription"> <text style={{textTransform: 'capitalize'}}> { filteredProduct.description } </text> </span>
-          <span className="eachProductImage">{ filteredProduct.image } </span>
+          <img src={filteredProduct.image}/>
+          <h1 className="eachProductName"> {filteredProduct.name} </h1> 
+          <p className="eachProductDescription"> {filteredProduct.description} </p>
         </div>
         ))
       }

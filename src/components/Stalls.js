@@ -29,19 +29,9 @@ function Stalls(props) {
         return (
           <div id="eachStall"> 
             <header> { stall.name } </header>
-            <div className="products">
+            <div id="eachStall-products">
             <Products stall={stall._id} />
             </div> 
-              {/* {products.map((product) => {
-              
-              )
-              // if(product.stall === stall.id){
-              // return (
-                
-              // )
-              // }
-            })
-            } */}
           </div>
         )
       })}
