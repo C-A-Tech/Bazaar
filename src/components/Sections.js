@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Component } from 'react';
-
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 import axios from 'axios';
@@ -38,7 +38,11 @@ const Sections = () => {
           background-position: center center;
           background-repeat: no-repeat;
       `;
-          return <Content className='eachSection'><h1 style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{section.title}</h1></Content>;
+          return (
+            <Link to={`/home/${section.title}`}> 
+              <Content className='eachSection'><h1 style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{section.title}</h1></Content>
+            </Link>
+            );
         })}
       </div>
     </div>

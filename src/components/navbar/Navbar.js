@@ -21,7 +21,7 @@ function Navbar(){
           </Link>
           <Link to="/my-stalls/:id">
             <FontAwesomeIcon icon={faStore} className="nav-icons"/>
-            <button className="nav-buttons"> My Stalls </button>
+            <button className="nav-buttons"> My Stall </button>
           </Link>
           <Link to="/user/:id">
             <FontAwesomeIcon icon={faUserAlt} className="nav-icons"/>
