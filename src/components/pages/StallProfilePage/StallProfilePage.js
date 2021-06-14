@@ -46,9 +46,7 @@ function StallProfilePage(props) {
             </>
           }))
         } 
-        <div className="listProducts">
-          <ListProducts />
-        </div>
+        
       </div>
       
     </div>
