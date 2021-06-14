@@ -29,7 +29,7 @@ function Stalls() {
         return (
           <div id="eachStall"> 
             <header> { stall.name } </header>
-            <div className="products">
+            <div id="eachStall-products">
             <Products stall={stall._id} />
             </div> 
           </div>

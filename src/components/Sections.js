@@ -24,17 +24,23 @@ const Sections = () => {
   const [sections] = useSections();
 
   return(
-    <div id='Sections'>
-      {sections.map((section) => {
-        const Content = styled.div`
-        border: none;
-        background-image: url(${section.image});
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    `;
-        return <Content className='eachSection'><h1 style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{section.title}</h1></Content>;
-      })}
+    <div>
+      <div className="Sections-heading">
+        <h1 className="Sections-heading">Welcome to the Market</h1>
+        <h3 className="Sections-heading">Take a look around!</h3>
+        </div>
+      <div id='Sections'>
+        {sections.map((section) => {
+          const Content = styled.div`
+          border: none;
+          background-image: url(${section.image});
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+      `;
+          return <Content className='eachSection'><h1 style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{section.title}</h1></Content>;
+        })}
+      </div>
     </div>
   )
   

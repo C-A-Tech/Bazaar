@@ -26,8 +26,10 @@ function Products(props) {
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
         (
         <div className="eachProduct"> 
-          <span className="eachProductName"> {filteredProduct.name} </span> <br />
-          <span className="eachProductDescription"> {filteredProduct.description} </span>
+          <img src={filteredProduct.image}/>
+          <h1 className="eachProductName"> {filteredProduct.name} </h1> 
+          <br />
+          <p className="eachProductDescription"> {filteredProduct.description} </p>
         </div>
         ))
       }
