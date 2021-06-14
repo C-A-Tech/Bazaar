@@ -28,6 +28,7 @@ function Products(props) {
         <div className="eachProduct"> 
           <span className="eachProductName"> <text style={{textTransform: 'capitalize'}}> {filteredProduct.name } </text> </span> <br /> <br />
           <span className="eachProductDescription"> <text style={{textTransform: 'capitalize'}}> { filteredProduct.description } </text> </span>
+          <span className="eachProductImage">{ filteredProduct.image } </span>
         </div>
         ))
       }

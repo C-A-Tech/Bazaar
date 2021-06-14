@@ -17,7 +17,7 @@ const useMyStalls = () => {
   
   const fetchMyStalls = async () => {
     await axios
-      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${signedInUser._id}`)
+      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${x}`)
       .then((res) => setMyStalls(res.data))
   };
   useEffect(() => fetchMyStalls(), [])
