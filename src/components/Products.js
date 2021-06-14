@@ -28,7 +28,6 @@ function Products(props) {
         <div className="eachProduct"> 
           <img src={filteredProduct.image}/>
           <h1 className="eachProductName"> {filteredProduct.name} </h1> 
-          <br />
           <p className="eachProductDescription"> {filteredProduct.description} </p>
         </div>
         ))
