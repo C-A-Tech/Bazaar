@@ -12,15 +12,11 @@ const useProducts = () => {
 
 	useEffect(() => fetchProducts(), []);
 
-  console.log([products])
-
 	return [products];
 };
 
 function Products(props) {
   const [products] = useProducts();
-  {console.log(props)
-  console.log(products)}
   return (
     <div>
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 

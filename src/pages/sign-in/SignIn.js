@@ -1,44 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import {motion} from "framer-motion";
 import './Signin.css'
 import logo from './src/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import Cookies from 'universal-cookie';
 import axios from 'axios';
 
 
 function SignIn() {
 	const [user, setUser] = useState('');
+  const cookies = new Cookies();
   const [redirect, setRedirect] = useState(false)
 
 	const submit = async (event) => {
 		event.preventDefault();
 		const userJson = JSON.stringify(user);
-		await axios
-			.post('https://bazaar-server.herokuapp.com/api/users/login', userJson, {
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-			.then((res) => res.data)
-			.then((data) => {
-				if (data.msg) {
-					// use this to create a flash message
-					console.log(data.msg);
-				} else {
-					// use the below to implement sesions
-					console.log(data);
-          setRedirect(true)
-				}
-			});
 
-      <Redirect to="/" />
+      await axios
+        .post('https://bazaar-server.herokuapp.com/api/users/login', userJson, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then((res) => res.data)
+        .then((data) => {
+          if (data.msg) {
+            // use this to create a flash message
+            console.log(data.msg);
+          } else {
+            cookies.set('user', data, { path: '/' });
+            setRedirect(true)
+            
+          }
+        });    
 	};
-	
+
+
   if (redirect) {
     return <Redirect to="/home" />
   }
+
 	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1]};
 	return (
    
