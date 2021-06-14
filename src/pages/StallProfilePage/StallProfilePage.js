@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import Products from '../../Products';
+import Products from '../../components/Products';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-import RequestStall from '../../RequestStall/RequestStall';
+import RequestStall from '../../components/RequestStall/RequestStall';
 import './StallProfilePage.css';
-import ListProducts from '../../ListProducts/ListProducts';
+import ListProducts from '../../components/ListProducts/ListProducts';
 
 const cookies = new Cookies();
 
