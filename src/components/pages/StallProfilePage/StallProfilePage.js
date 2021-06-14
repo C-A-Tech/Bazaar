@@ -17,19 +17,18 @@ const useMyStalls = () => {
   
   const fetchMyStalls = async () => {
     await axios
-      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${x}`)
+      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${signedInUser._id}`)
       .then((res) => setMyStalls(res.data))
   };
   useEffect(() => fetchMyStalls(), [])
-  console.log(myStalls)
-  console.log(signedInUser._id)
+
   return [myStalls]
 }
 
 
 function StallProfilePage(props) {
   const [myStalls] = useMyStalls();
-  console.log(myStalls.msg)
+
   return (
     <div>
       <div className="allMyStalls">

@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { FaTimes, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-
+const form = new FormData();
 
 Modal.setAppElement('#root')
 
@@ -25,8 +25,10 @@ function RequestStall() {
 		const newStallJson = JSON.stringify(newStall);
 		await axios
 			.post('https://bazaar-server.herokuapp.com/api/stalls/create', newStallJson, {
-				headers: {
-					'Content-Type': 'application/json'
+				data: 'form',
+        headers: {
+				  'Content-Type': 'multipart/form-data'
+          
 				}
 			})
 			.then((res) => res.data)

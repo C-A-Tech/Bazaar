@@ -8,6 +8,8 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 // import cookies from '../../Cookies';
 
+
+
 function SignUp() {
 	const [user, setUser] = useState('');
 

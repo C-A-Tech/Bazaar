@@ -23,10 +23,11 @@ function App() {
               <Route path="/signup" exact component={SignUp}/>  
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
+              <Route path="/my-stalls/" exact component={StallProfilePage}/>
               <div className="routes-with-navbar">
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
-                <Route path="/my-stalls/:id" exact component={StallProfilePage}/>
+                
                              
                 
               </div> 
