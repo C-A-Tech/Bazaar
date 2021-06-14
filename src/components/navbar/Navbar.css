@@ -19,7 +19,7 @@
   height: 5vh;
   max-height: 5vh;
   width: 100vw;
-  background-color: red;
+  background-color: rgb(139, 187, 187);
   display: flex;
   justify-content: space-around;
 }
@@ -60,7 +60,7 @@ color: white;
   .Navbar {
     position: fixed;
     top: 0; 
-    background-color: red;
+    background-color: rgb(139, 187, 187);
     border-top: none;
     border-bottom: grey solid 2px;
     height: 8vh;

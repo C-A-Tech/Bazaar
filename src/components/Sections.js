@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+
 import styled from 'styled-components';
-import img from './src/1.png';
+
 import axios from 'axios';
 
 
