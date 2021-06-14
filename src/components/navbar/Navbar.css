@@ -8,8 +8,14 @@
   height: 7vh;
   max-height: 7vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100vw;
+}
+
+.all-nav-buttons {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
 }
 
 .Mobile-top-header {
@@ -45,15 +51,6 @@
   text-decoration: none;
 }
 
-.Navbar button {
-  border: none;
-  background: transparent;
-}
-
-.Navbar button:hover {
-color: white;
-}
-
 /*this is for the desktop view */
 
 @media (min-width: 650px) {
@@ -76,19 +73,35 @@ color: white;
   .Navbar .container {
     width: 1320px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
+
 
   .Navbar .logo {
     display: unset;
   }
 
+  .Navbar .all-nav-buttons {
+    width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+  }
   .Navbar .nav-icons {
     display: none;
   }
   
   .Navbar .nav-buttons {
     display: unset;
+    color: white;
+    font-size: large;
   }
 
+  .Navbar .nav-buttons{
+    border: none;
+    background: transparent;
+  }
+  
+  .Navbar .nav-buttons:hover {
+  background-color: rgba(255, 255, 255, 0.315);
+  }
 }

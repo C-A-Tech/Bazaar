@@ -14,22 +14,24 @@ function Navbar(){
     <nav className="Navbar">
       <div className="Navbar container">
         <img src={ logo } className="logo"></img>
-        <Link to="/home">
-          <FontAwesomeIcon icon={faHome} className="nav-icons"/>
-          <button className="nav-buttons"> Browse </button>
-        </Link>
-        <Link to="/my-stalls/:id">
-          <FontAwesomeIcon icon={faStore} className="nav-icons"/>
-          <button className="nav-buttons"> My Stalls </button>
-        </Link>
-        <Link to="/user/:id">
-          <FontAwesomeIcon icon={faUserAlt} className="nav-icons"/>
-          <button className="nav-buttons"> My Profile </button>
-        </Link> 
-        <Link to="/basket/:id">
-          <FontAwesomeIcon icon={faShoppingBasket} className="nav-icons"/> 
-          <button className="nav-buttons"> Basket </button>
-        </Link>
+        <div className="all-nav-buttons">
+          <Link to="/home">
+            <FontAwesomeIcon icon={faHome} className="nav-icons"/>
+            <button className="nav-buttons"> Browse </button>
+          </Link>
+          <Link to="/my-stalls/:id">
+            <FontAwesomeIcon icon={faStore} className="nav-icons"/>
+            <button className="nav-buttons"> My Stalls </button>
+          </Link>
+          <Link to="/user/:id">
+            <FontAwesomeIcon icon={faUserAlt} className="nav-icons"/>
+            <button className="nav-buttons"> My Profile </button>
+          </Link> 
+          <Link to="/basket/:id">
+            <FontAwesomeIcon icon={faShoppingBasket} className="nav-icons"/> 
+            <button className="nav-buttons"> Basket </button>
+          </Link>
+        </div>
       </div>
     </nav>
     <div className="Mobile-top-header">
