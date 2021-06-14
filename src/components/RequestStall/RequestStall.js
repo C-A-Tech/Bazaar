@@ -5,14 +5,13 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 
 
-const form = new FormData();
+
 
 Modal.setAppElement('#root')
 
-function RequestStall() {
+function RequestStall(props) {
   const [modalState, setmodalState] = useState(false);
   const [newStall, setNewStall] = useState({});
-  
   const cookies = new Cookies
 
   let signedInUser = cookies.get('user')
@@ -25,17 +24,26 @@ function RequestStall() {
 
 	const createStall = async (event) => {
     event.preventDefault();
-    // const formData = new FormData(request-a-stall-modal);
+    let user = signedInUser._id
+    const formData = new FormData(event.target);
 
-		const formDataJson = JSON.stringify(newStall);
+    
+    formData.set('user', `${user}`);
+    formData.set('name', formData.get('name'));
+    formData.set('section', formData.get('section'));
+    formData.set('image', formData.get('image'));
+
+    for( var pair of formData.entries() ){
+      console.log(pair[0]+ ', '+ pair[1])
+    }
+
+		const newStallJson = JSON.stringify(formData);
+    const config = {     
+      headers: { 'content-type': 'multipart/form-data' }
+    }
+
 		await axios
-			.post('https://bazaar-server.herokuapp.com/api/stalls/create', formDataJson, {
-				// data: 'form',
-        headers: {
-				  'Content-Type': 'application/json'
-          
-				}
-			})
+			.post('https://bazaar-server.herokuapp.com/api/stalls/create', newStallJson, config)
 			.then((res) => res.data)
 			.then((data) => data.msg)
 			.then((msg) => {
@@ -55,51 +63,45 @@ function RequestStall() {
 
       {/* .............................Modal....................................... */}
       <div className="stall-modal">
-        <form  >
+        
         <Modal
           id="request-a-stall-modal"
           isOpen={modalState} 
-          onSubmit={(e) => createStall(e)}
           onRequestClose={() => setmodalState(false)} 
           onAfterOpen= {() => setNewStall({ ...newStall, user: signedInUser._id })}
           style={
             { overlay: {backgroundColor: 'grey'} }
           } 
         >
+        <form  onSubmit={(e) => createStall(e)}>
           <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
           
         
-          <input 
-            type="text" 
-            placeholder="Enter Stall Name"
-            onChange={(e) => setNewStall({...newStall, name: e.target.value})}
-          /> 
+          <input type="text" placeholder="Enter Stall Name" name="name" /> 
           <br /><br />
 
           
 
-          <select  onChange={(e) => setNewStall({...newStall, section: e.target.value})}>
+          <select  name="section">
             <option default>Select an appropriate section</option>
 
-            <option value="antiques" >Antiques</option>
-            <option value="carpets_and_rugs">Carpets and Rugs</option>
-            <option value="ceramics">Ceramics</option>
-            <option value="clothes">Clothes</option>
-            <option value="electronics">Electronics</option>
-            <option value="furniture">Furniture</option>
-            <option value="home_decor">Home Decor</option>
-            <option value="jewellery">Jewellery</option>
+            <option value="60c4c6ddc118f71813de7c27" name="antiques">Antiques</option>
+            <option value="60c4c70ec118f71813de7c28" name="carpets_and_rugs">Carpets and Rugs</option>
+            <option value="60c4c737c118f71813de7c29" name="ceramics">Ceramics</option>
+            <option value="60c4c773c118f71813de7c2a" name="clothes">Clothes</option>
+            <option value="60c4c7b1c118f71813de7c2b" name="electronics">Electronics</option>
+            <option value="60c4c7e4c118f71813de7c2c" name="furnitures">Furnitures</option>
+            <option value="60c4c804c118f71813de7c2d" name="home_decor">Home Decor</option>
+            <option value="60c4c825c118f71813de7c2e" name="jewellery">Jewellery</option>
 
           </select> <br /><br /><br />
 
-          <input 
-            type="file" 
-            onChange={(e) => setNewStall({...newStall, image: e.target.value})}
-          /> 
+          <input type="file" name="image" /> 
 
           <button type='submit'>Submit</button>
-        </Modal>
         </form>
+        </Modal>
+        
         
         {console.log(newStall)}
           
