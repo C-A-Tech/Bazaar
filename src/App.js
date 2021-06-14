@@ -9,7 +9,12 @@ import SignUp from './pages/sign-up/SignUp';
 import Home from './pages/home/Home';
 import PageNotFound from './pages/PageNotFound';
 import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
+import Cookies from 'universal-cookie';
 
+
+const cookies = new Cookies();
+
+let signedInUser = cookies.get('user')
 
 
 function App() {

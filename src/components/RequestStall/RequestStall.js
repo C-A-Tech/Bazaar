@@ -3,13 +3,15 @@ import Modal from 'react-modal';
 import { FaTimes, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+
+
 const form = new FormData();
 
 Modal.setAppElement('#root')
 
 function RequestStall() {
   const [modalState, setmodalState] = useState(false);
-  const [newStall, setNewStall] = useState([]);
+  const [newStall, setNewStall] = useState({});
   
   const cookies = new Cookies
 
@@ -22,12 +24,15 @@ function RequestStall() {
 	};
 
 	const createStall = async (event) => {
-		const newStallJson = JSON.stringify(newStall);
+    event.preventDefault();
+    // const formData = new FormData(request-a-stall-modal);
+
+		const formDataJson = JSON.stringify(newStall);
 		await axios
-			.post('https://bazaar-server.herokuapp.com/api/stalls/create', newStallJson, {
-				data: 'form',
+			.post('https://bazaar-server.herokuapp.com/api/stalls/create', formDataJson, {
+				// data: 'form',
         headers: {
-				  'Content-Type': 'multipart/form-data'
+				  'Content-Type': 'application/json'
           
 				}
 			})
@@ -50,12 +55,13 @@ function RequestStall() {
 
       {/* .............................Modal....................................... */}
       <div className="stall-modal">
-        <form >
-        <Modal 
-          className="request-a-stall-modal"
+        <form  >
+        <Modal
+          id="request-a-stall-modal"
           isOpen={modalState} 
+          onSubmit={(e) => createStall(e)}
           onRequestClose={() => setmodalState(false)} 
-          onSubmit={createStall()}
+          onAfterOpen= {() => setNewStall({ ...newStall, user: signedInUser._id })}
           style={
             { overlay: {backgroundColor: 'grey'} }
           } 
@@ -91,7 +97,7 @@ function RequestStall() {
             onChange={(e) => setNewStall({...newStall, image: e.target.value})}
           /> 
 
-          <input type="submit" value="Submit" onClick= {() => setNewStall({ ...newStall, user: signedInUser._id })}/>
+          <button type='submit'>Submit</button>
         </Modal>
         </form>
         
