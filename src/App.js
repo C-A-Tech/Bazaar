@@ -11,7 +11,7 @@ import PageNotFound from './pages/PageNotFound';
 import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 import Cookies from 'universal-cookie';
 import ViewStalls from './pages/ViewStalls/ViewStalls';
-
+import ReactNotifications from 'react-notifications-component';
 
 const cookies = new Cookies();
 
@@ -22,6 +22,7 @@ function App() {
   return (
   
       <div className="App">
+        <ReactNotifications />
         <Router>
           <AnimatePresence  exitBeforeEnter>
             <Switch>

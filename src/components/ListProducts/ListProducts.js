@@ -3,12 +3,15 @@ import Modal from 'react-modal';
 import { FaTimes, FaPlus } from 'react-icons/fa';
 import axios from 'axios'
 import Cookies from 'universal-cookie'
+import addNotification from '../../notices/notice';
+import { Redirect } from 'react-router';
 
 function ListProducts(props) {
   const [modalState, setmodalState] = useState(false);
   const [addMoreProducts, setAddMoreProducts] = useState([]);
   const [newProduct, setNewProduct] = useState([])
   const [files, setFiles] = useState([])
+  const [redirect, setRedirect] = useState(false);
   const cookies = new Cookies
   let signedInUser = cookies.get('user')
 
@@ -41,7 +44,7 @@ function ListProducts(props) {
 
     const printErrors = (msg) => {
       msg.forEach((element) => {
-        console.log(element.msg);
+        addNotification(element.msg, 'danger');
       });
     };
 
@@ -50,14 +53,25 @@ function ListProducts(props) {
     };
     
     await axios
+    // .post('http://localhost:5000/api/products/create', formData, config)
     .post('https://bazaar-server.herokuapp.com/api/products/create', formData, config)
     .then((res) => res.data)
     .then((data) => data.msg)
     .then((msg) => {
-      // use this to create flash error messages
-      Array.isArray(msg) ? printErrors(msg) : console.log(msg);
+      if (Array.isArray(msg)) {
+        printErrors(msg);
+      } else if (msg === 'product created') {
+        addNotification(msg, 'success');
+        setRedirect(true);
+      } else {
+        addNotification(msg, 'danger');
+      }
     });
   };
+
+  if (redirect) {
+		return <Redirect to='/my-stalls/:id' />;
+	}
   
   return (
     <div>
