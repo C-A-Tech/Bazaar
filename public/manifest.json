@@ -1,6 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "dir": "ltr",
+  "lang": "en",
+  "name": "Bazaar: The Virtual Marketplace",
+  "short_name": "Bazaar",
+  "scope": "/",
+  "display": "fullscreen",
+  "start_url": ".",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +23,12 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2f0059",
+  "background_color": "#FFFFFF",
+  "orientation": "portrait",
+  "related_applications": [],
+  "prefer_related_applications": "false",
+  "url": ".",
+  "screenshots": [],
+  "manifestUrl": "."
 }
