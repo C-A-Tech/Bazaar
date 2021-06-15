@@ -1,0 +1,16 @@
+.log-out-buttons {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-icons {
+  visibility: visible;
+  font-size: 30px;
+  color: rgb(139, 187, 187);
+  margin: auto;
+}
+
+.Navbar .nav-buttons {
+  display: none;
+}
