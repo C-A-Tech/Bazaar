@@ -37,13 +37,12 @@ function RequestStall(props) {
       console.log(pair[0]+ ', '+ pair[1])
     }
 
-		const newStallJson = JSON.stringify(formData);
     const config = {     
       headers: { 'content-type': 'multipart/form-data' }
     }
 
 		await axios
-			.post('https://bazaar-server.herokuapp.com/api/stalls/create', newStallJson, config)
+			.post('https://bazaar-server.herokuapp.com/api/stalls/create', formData, config)
 			.then((res) => res.data)
 			.then((data) => data.msg)
 			.then((msg) => {
