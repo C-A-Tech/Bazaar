@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
-import {motion} from "framer-motion";
-import './Signup.css'
-import logo from './src/logo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { motion } from 'framer-motion';
+import './Signup.css';
+import logo from './src/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-// import cookies from '../../Cookies';
-
-
+import addNotification from '../../notices/notice';
 
 function SignUp() {
 	const [user, setUser] = useState('');
@@ -31,22 +29,34 @@ function SignUp() {
 			.then((res) => res.data)
 			.then((data) => data.msg)
 			.then((msg) => {
-        // use this to create flash error messages
-				Array.isArray(msg) ? printErrors(msg) : console.log(msg);
+				Array.isArray(msg) ? printErrors(msg) : addNotification(msg, 'info');
 			});
 
-
-     <Redirect to="/signin" />
+		<Redirect to='/signin' />;
 	};
 
-  
-  
-	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1]};
+	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1] };
 	return (
-		<motion.div initial='initial' animate='animate' exit='exit' className="Signup">
-			<motion.div initial={{opacity:1, position:'relative', left:'-50%'}} animate={{opacity:1, position:'relative', left:'0', transition: {delay:0.001, ...transition}}} className="form-space">
-				<div className="home-icon">
-					<a href="/"><FontAwesomeIcon icon={faHome} /></a>
+		<motion.div
+			initial='initial'
+			animate='animate'
+			exit='exit'
+			className='Signup'
+		>
+			<motion.div
+				initial={{ opacity: 1, position: 'relative', left: '-50%' }}
+				animate={{
+					opacity: 1,
+					position: 'relative',
+					left: '0',
+					transition: { delay: 0.001, ...transition }
+				}}
+				className='form-space'
+			>
+				<div className='home-icon'>
+					<a href='/'>
+						<FontAwesomeIcon icon={faHome} />
+					</a>
 				</div>
 				<form onSubmit={submit}>
 					<header>
@@ -98,9 +108,18 @@ function SignUp() {
 					</span>
 				</form>
 			</motion.div>
-			<motion.div initial={{width: '75%', position:'absolute', x:'16.7%', y:'-9%'}} animate={{width: '59%', x:'69.5%', y:'1%', transition: {delay:0.002, ...transition}}} className="logo">
-        <img src={logo}></img>
-      </motion.div>
+			<motion.div
+				initial={{ width: '75%', position: 'absolute', x: '16.7%', y: '-9%' }}
+				animate={{
+					width: '59%',
+					x: '69.5%',
+					y: '1%',
+					transition: { delay: 0.002, ...transition }
+				}}
+				className='logo'
+			>
+				<img src={logo}></img>
+			</motion.div>
 		</motion.div>
 	);
 }
