@@ -57,7 +57,7 @@ function RequestStall(props) {
       
       {/* .............................Button....................................... */}
       <div className="request-a-stall">
-        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } />
+        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } title="Request a stall" />
       </div>
       {/* .............................Button....................................... */}
 

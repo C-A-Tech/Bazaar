@@ -59,7 +59,7 @@ function ListProducts(props) {
 
       {/* .............................Button....................................... */}
       <div className="addProducts">
-        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } />
+        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } title="List a product" />
       </div>
       {/* .............................Button....................................... */}
 
@@ -81,7 +81,7 @@ function ListProducts(props) {
           <input type="submit" value="Submit" />
         </form>
 
-        {addMoreProducts.map( (product, index) => {
+        {/* {addMoreProducts.map( (product, index) => {
           return (
             <div key={index} className="moreProducts">  
               <form>
@@ -95,7 +95,7 @@ function ListProducts(props) {
         })}
         
         
-        <button className="addProducts" onClick={(e) => setAddMoreProducts({ ...addMoreProducts,  })}> Add More Products </button> <br /><br />
+        <button className="addProducts" onClick={(e) => setAddMoreProducts({ ...addMoreProducts,  })}> Add More Products </button> <br /><br /> */}
         
       </Modal> 
 

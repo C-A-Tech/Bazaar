@@ -25,6 +25,7 @@ function Products(props) {
           <img src={filteredProduct.image}/>
           <h1 className="eachProductName"> {filteredProduct.name} </h1> 
           <p className="eachProductDescription"> {filteredProduct.description} </p>
+          <p className="eachProductPrice"> {filteredProduct.price} </p>
         </div>
         ))
       }
