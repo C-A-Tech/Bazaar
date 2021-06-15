@@ -10,6 +10,7 @@ import addNotification from '../../notices/notice';
 
 function SignUp() {
 	const [user, setUser] = useState('');
+	const [redirect, setRedirect] = useState(false);
 
 	const printErrors = (msg) => {
 		msg.forEach((element) => {
@@ -29,11 +30,20 @@ function SignUp() {
 			.then((res) => res.data)
 			.then((data) => data.msg)
 			.then((msg) => {
-				Array.isArray(msg) ? printErrors(msg) : addNotification(msg, 'info');
+				if (Array.isArray(msg)) {
+					printErrors(msg);
+				} else if (msg === 'user has been saved successfully') {
+					addNotification(msg, 'success');
+					setRedirect(true);
+				} else {
+					addNotification(msg, 'danger');
+				}
 			});
-
-		<Redirect to='/signin' />;
 	};
+
+	if (redirect) {
+		return <Redirect to='/home' />;
+	}
 
 	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1] };
 	return (
