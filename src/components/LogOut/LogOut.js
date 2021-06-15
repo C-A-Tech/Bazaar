@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
+import addNotification from '../../notices/logOut'
 
 
 function LogOut() {
@@ -27,7 +28,7 @@ function LogOut() {
       animationIn: ["animated", "fadeIn"],     
       animationOut: ["animated", "fadeOut"],  
       dismiss: {
-        duration: 3000
+        duration: 1500
       }
     })
   }
