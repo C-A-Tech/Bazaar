@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Cookies from 'universal-cookie';
 import axios from 'axios';
+import addNotification from '../../notices/notice';
 
 
 function SignIn() {
@@ -27,12 +28,11 @@ function SignIn() {
         .then((res) => res.data)
         .then((data) => {
           if (data.msg) {
-            // use this to create a flash message
-            console.log(data.msg);
+            addNotification(data.msg, 'danger')
           } else {
             cookies.set('user', data, { path: '/' });
+						addNotification('Logged in successfully', 'success')
             setRedirect(true)
-            
           }
         });    
 	};

@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 import { FaTimes, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-
+import addNotification from '../../notices/notice';
+import { Redirect } from 'react-router';
 
 
 
@@ -12,13 +13,14 @@ Modal.setAppElement('#root')
 function RequestStall(props) {
   const [modalState, setmodalState] = useState(false);
   const [newStall, setNewStall] = useState({});
+  const [redirect, setRedirect] = useState(false);
   const cookies = new Cookies
 
   let signedInUser = cookies.get('user')
 
   const printErrors = (msg) => {
 		msg.forEach((element) => {
-			console.log(element.msg);
+			addNotification(element.msg, 'danger');
 		});
 	};
 
@@ -46,10 +48,20 @@ function RequestStall(props) {
 			.then((res) => res.data)
 			.then((data) => data.msg)
 			.then((msg) => {
-        // use this to create flash error messages
-				Array.isArray(msg) ? printErrors(msg) : console.log(msg);
+        if (Array.isArray(msg)) {
+          printErrors(msg);
+        } else if (msg === 'Stall created') {
+          addNotification(msg, 'success');
+          setRedirect(true);
+        } else {
+          addNotification(msg, 'danger');
+        }
 			});
   };
+
+  if (redirect) {
+		return <Redirect to='/my-stalls/:id' />;
+	}
   
   return (
     <div>
