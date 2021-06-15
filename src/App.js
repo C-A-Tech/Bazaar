@@ -10,6 +10,7 @@ import Home from './pages/home/Home';
 import PageNotFound from './pages/PageNotFound';
 import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 import Cookies from 'universal-cookie';
+import ViewStalls from './pages/ViewStalls/ViewStalls';
 import ReactNotifications from 'react-notifications-component';
 
 const cookies = new Cookies();
@@ -29,11 +30,13 @@ function App() {
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
               
+              
               <div className="routes-with-navbar">
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
-                <Route path="/my-stalls/:id" exact component={StallProfilePage}/>
+                <Route path="/my-stalls/{id}" exact component={StallProfilePage}/>
                 <Route path="/home/:sectionTitle" exact component={Home}/>
+                <Route path="/stalls/:id" exact component={ViewStalls}/>
                              
                 
               </div> 

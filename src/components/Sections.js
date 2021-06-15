@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import Stalls from './Stalls/Stalls'
+import StallsBySection from './Stalls/StallsBySection'
 import axios from 'axios';
 
 const useSections = () => {
@@ -48,7 +48,7 @@ const Sections = () => {
         })}
       </div>
       <div className="Stalls">
-					<Stalls currentSection={currentSection}/>
+					<StallsBySection currentSection={currentSection}/>
 			</div>
     </div>
   )
