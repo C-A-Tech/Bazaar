@@ -10,7 +10,7 @@ const cookies = new Cookies();
 
 let signedInUser = cookies.get('user')
 let x = '60c0d0591be0426f8bcb333c'
-
+console.log(signedInUser)
 
 const useMyStalls = () => {
   const [myStalls, setMyStalls] = useState([]);
@@ -26,28 +26,31 @@ const useMyStalls = () => {
 }
 
 
-function StallProfilePage(props) {
+function StallProfilePage (props) {
   const [myStalls] = useMyStalls();
-
+  console.log(myStalls)
   return (
     <div>
+
       <div className="allMyStalls">
         { (myStalls.msg === "No stalls") ? (<h1 id="noStall"> You Currently Do not Own A Stall <RequestStall /> </h1> ) : (myStalls.map((myStall) =>  {
           return <>
-            <header> { myStall.name } </header>
+            <header key={myStall.id}> { myStall.name } </header>
 
             <div className="myProducts">
               <Products stall={myStall._id} />
             </div>
- 
             
-
+            <div className="list-products">
+              <ListProducts section={myStall.section} stall={myStall._id} />
+            </div>
             </>
           }))
-        } 
-        
+        }
       </div>
       
+      
+
     </div>
   )
 }
