@@ -2,11 +2,7 @@ import { FaPowerOff } from 'react-icons/fa';
 import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router';
 import { useState } from 'react';
-import { store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
-import 'animate.css';
-import addNotification from '../../notices/logOut'
-
+import addNotification from '../../notices/logOut';
 
 function LogOut() {
 	const [redirect, setRedirect] = useState(false);
@@ -18,20 +14,6 @@ function LogOut() {
 
 		addNotification();
 	};
-
-  const addNotification = () => {
-    store.addNotification({
-      title: 'Logout',
-      message: 'User has been logged out successfully',
-      type: 'success',                         
-      container: 'top-right',                
-      animationIn: ["animated", "fadeIn"],     
-      animationOut: ["animated", "fadeOut"],  
-      dismiss: {
-        duration: 1500
-      }
-    })
-  }
 
 	if (redirect) {
 		return <Redirect to='/' />;
