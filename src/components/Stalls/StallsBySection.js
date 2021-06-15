@@ -3,6 +3,7 @@ import axios from 'axios';
 import Products from '../Products'
 import './Stalls.css'
 import { Link } from 'react-router-dom';
+import ViewStalls from '../../pages/ViewStalls/ViewStalls';
 
 
 const useStalls = () => {
@@ -30,8 +31,8 @@ const StallsBySection = (props) => {
         return (
           
           <div id="eachStall"> 
-          <Link to={`/stalls/${selectedStall._id}`} >
-            <header> { selectedStall.name } </header>
+          <Link to={`/stalls/${selectedStall._id}`}  >
+             <header> { selectedStall.name } </header>
           </Link>
 
             <div id="eachStall-products">

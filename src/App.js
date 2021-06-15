@@ -28,14 +28,14 @@ function App() {
               <Route path="/signup" exact component={SignUp}/>  
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
-              <Route path="/stalls/:id" exact component={ViewStalls}/>
+              
               
               <div className="routes-with-navbar">
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
-                <Route path="/my-stalls/:id" exact component={StallProfilePage}/>
+                <Route path="/my-stalls/{id}" exact component={StallProfilePage}/>
                 <Route path="/home/:sectionTitle" exact component={Home}/>
-                
+                <Route path="/stalls/:id" exact component={ViewStalls}/>
                              
                 
               </div> 

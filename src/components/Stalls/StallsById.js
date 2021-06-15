@@ -11,7 +11,7 @@ const useStalls = (props) => {
   
   const fetchStalls = async () => {
     await axios
-      .get(`https://bazaar-server.herokuapp.com/api/stalls/${props.stallId}`)
+      .get(`https://bazaar-server.herokuapp.com/api/stalls/stall/${props.stallId}`)
       .then((res) => setStalls(res.data))
   };
   useEffect(() => fetchStalls(), [])
@@ -28,17 +28,16 @@ const StallsById = (props) => {
   
   return (
     <div>
-      {stalls.filter( stall => stall.section === props.currentSection).map(selectedStall => {
+      {stalls.map( (stall) => {
         return (
           
           <div id="eachStall"> 
-          <Link to={`/stalls/${selectedStall._id}`} >
-            <header> { selectedStall.name } </header>
-          </Link>
+            <header className="eachStallName"> { stall.name } </header>
 
             <div id="eachStall-products">
-							<Products stall={selectedStall._id} />
+							<Products stall={stall._id} />
             </div> 
+
           </div>
          
         )
