@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Products from '../Products'
 import './Stalls.css'
+import { Link } from 'react-router-dom';
 
 
 const useStalls = () => {
@@ -13,30 +14,35 @@ const useStalls = () => {
       .then((res) => setStalls(res.data))
   };
   useEffect(() => fetchStalls(), [])
-  console.log(stalls)
   return [stalls]
 }
   
 
 
-const Stalls = (props) => {
+const StallsBySection = (props) => {
   const [stalls] = useStalls();
+
   console.log(props)
   
   return (
     <div>
       {stalls.filter( stall => stall.section === props.currentSection).map(selectedStall => {
         return (
+          
           <div id="eachStall"> 
+          <Link to={`/stalls/${selectedStall._id}`} >
             <header> { selectedStall.name } </header>
+          </Link>
+
             <div id="eachStall-products">
 							<Products stall={selectedStall._id} />
             </div> 
           </div>
+         
         )
       })}
     </div>
   )
 }
 
-export default Stalls
+export default StallsBySection

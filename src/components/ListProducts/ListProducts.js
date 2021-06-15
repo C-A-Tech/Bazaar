@@ -77,7 +77,7 @@ function ListProducts(props) {
           <br /><input type="text" placeholder="Enter Item Name" name="name" /> <br /><br />
           £ <input type="text" placeholder="Set Item Price" name="price" /> <br /><br />
           <textarea placeholder="Enter Item Description" name="description" /> <br />
-          <input type="file" name="image" />
+          <input type="file" multiple name="image" />
           <input type="submit" value="Submit" />
         </form>
 
