@@ -8,6 +8,7 @@ function ListProducts(props) {
   const [modalState, setmodalState] = useState(false);
   const [addMoreProducts, setAddMoreProducts] = useState([]);
   const [newProduct, setNewProduct] = useState([])
+  const [files, setFiles] = useState([])
   const cookies = new Cookies
   let signedInUser = cookies.get('user')
 
@@ -20,6 +21,7 @@ function ListProducts(props) {
     let user = signedInUser._id
     
     const formData = new FormData(event.target);
+    setFiles(event.target.files);
 
     formData.set('user', `${user}`);
     formData.set('section', `${props.section}`);
@@ -28,7 +30,10 @@ function ListProducts(props) {
     formData.set('name', formData.get('name'));
     formData.set('price', formData.get('price'));
     formData.set('description', formData.get('description'));
-    formData.set('image', formData.get('image'));
+    
+    for (let i = 0; i < files.length; i++) {
+      formData.append(`images[${i}]`, files[i])
+  }
 
     for( var pair of formData.entries() ){
       console.log(pair[0]+ ', '+ pair[1])
