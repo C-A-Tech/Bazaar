@@ -7,7 +7,6 @@ import LandingPage from './pages/landing-page/LandingPage';
 import SignIn from './pages/sign-in/SignIn';
 import SignUp from './pages/sign-up/SignUp';
 import Home from './pages/home/Home';
-import Stalls from './components/Stalls'
 import PageNotFound from './pages/PageNotFound';
 import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 
@@ -15,7 +14,7 @@ import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 
 function App() {
   return (
-    /*initial={false}*/
+  
       <div className="App">
         <Router>
           <AnimatePresence  exitBeforeEnter>
@@ -28,7 +27,7 @@ function App() {
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
                 <Route path="/my-stalls/:id" exact component={StallProfilePage}/>
-                <Route path="/home/:sectionTitle" exact component={Stalls}/>
+                <Route path="/home/:sectionTitle" exact component={Home}/>
                              
                 
               </div> 

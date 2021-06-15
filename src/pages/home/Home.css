@@ -56,53 +56,7 @@ h3.Sections-heading {
   background-color: rgba(0, 0, 0, 0.349);
 }
 
-#eachStall {
-  width: 100%;
-  height: 30vh;
-  background-color: white;
-  margin-top: 20px;
-}
 
-#eachStall header {
-  text-align: start;
-  padding-left: 10px;
-  font-family: "Droid Sans";
-  font-weight: bold;
-  font-size: x-large;
-  color: teal;
-}
-
-#eachStall-products {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-
-
-.eachProduct{
-  font-size: x-small;
-  width: 400px;
-  height: 200px;
-  max-width: 200px;
-  margin: 10px;
-  display: inline-block;
-  overflow: hidden;
-}
-
-
-.eachProduct img {
-  height: 150px;
-}
-
-.eachProduct h1 {
- color: rgb(129, 180, 180);
- margin: 0 auto;
- font-size: medium;
-}
-
-.eachProduct p {
-  margin: 0 auto;
-}
 
 @media (min-width: 650px) {
   
