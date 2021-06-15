@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import Products from './Products'
+import Products from '../Products'
+import './Stalls.css'
 
 
 const useStalls = () => {
@@ -18,19 +19,18 @@ const useStalls = () => {
   
 
 
-function Stalls(props) {
+const Stalls = (props) => {
   const [stalls] = useStalls();
- 
   console.log(props)
+  
   return (
     <div>
-      {stalls.map((stall) => {
-        
+      {stalls.filter( stall => stall.section === props.currentSection).map(selectedStall => {
         return (
           <div id="eachStall"> 
-            <header> { stall.name } </header>
+            <header> { selectedStall.name } </header>
             <div id="eachStall-products">
-            <Products stall={stall._id} />
+							<Products stall={selectedStall._id} />
             </div> 
           </div>
         )

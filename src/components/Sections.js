@@ -1,9 +1,8 @@
 import React, { useEffect, useState, Component } from 'react';
-
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
-
+import Stalls from './Stalls/Stalls'
 import axios from 'axios';
-
 
 const useSections = () => {
 	const [sections, setSections] = useState([]);
@@ -19,9 +18,12 @@ const useSections = () => {
 };
 
 
-
 const Sections = () => {
+
   const [sections] = useSections();
+
+  const [currentSection, setCurrentSection] = useState("60c0d0b31be0426f8bcb333f")
+	
 
   return(
     <div>
@@ -38,9 +40,16 @@ const Sections = () => {
           background-position: center center;
           background-repeat: no-repeat;
       `;
-          return <Content className='eachSection'><h1 style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{section.title}</h1></Content>;
+          return (
+            
+              <Content className='eachSection' onClick={() => setCurrentSection(`${section._id}`)} ><h1 style={{whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>{section.title}</h1></Content>
+            
+            );
         })}
       </div>
+      <div className="Stalls">
+					<Stalls currentSection={currentSection}/>
+			</div>
     </div>
   )
   

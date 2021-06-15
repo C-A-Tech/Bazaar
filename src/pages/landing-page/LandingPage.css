@@ -3,7 +3,7 @@
   background-image: url(./src/background-image.png);
   background-position: center;
   min-height: 100%;
-
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;

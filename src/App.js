@@ -19,7 +19,7 @@ let signedInUser = cookies.get('user')
 
 function App() {
   return (
-    /*initial={false}*/
+  
       <div className="App">
         <Router>
           <AnimatePresence  exitBeforeEnter>
@@ -32,7 +32,7 @@ function App() {
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
                 <Route path="/my-stalls/:id" exact component={StallProfilePage}/>
-                
+                <Route path="/home/:sectionTitle" exact component={Home}/>
                              
                 
               </div> 
