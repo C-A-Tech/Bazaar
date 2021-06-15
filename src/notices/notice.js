@@ -4,7 +4,6 @@ import 'animate.css';
 
 const addNotification = (msg, type) => {
 	store.addNotification({
-		title: 'invalid email or password',
 		message: `${msg}`,
 		type: `${type}`,
 		container: 'top-right',

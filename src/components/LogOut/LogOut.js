@@ -2,7 +2,7 @@ import { FaPowerOff } from 'react-icons/fa';
 import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router';
 import { useState } from 'react';
-import addNotification from '../../notices/logOut';
+import addNotification from '../../notices/notice';
 
 function LogOut() {
 	const [redirect, setRedirect] = useState(false);
@@ -12,7 +12,7 @@ function LogOut() {
 		cookies.remove('user');
 		setRedirect(true);
 
-		addNotification();
+		addNotification('Logged out successfully', 'success');
 	};
 
 	if (redirect) {

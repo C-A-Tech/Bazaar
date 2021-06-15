@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-import addNotification from '../../notices/login';
+import addNotification from '../../notices/notice';
 
 
 function SignIn() {
