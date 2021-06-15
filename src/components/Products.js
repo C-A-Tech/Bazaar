@@ -37,7 +37,8 @@ function Products(props) {
         (
           <>
             <div className="eachProduct" onClick={ () => selectedProduct(filteredProduct._id) }> 
-              <img src={filteredProduct.image}/>
+              
+              { filteredProduct.image.map( (image) =><img src={image} /> ) }
               <h1 className="eachProductName"> {filteredProduct.name} </h1> 
               <p className="eachProductDescription"> {filteredProduct.description} </p>
               <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
@@ -47,7 +48,7 @@ function Products(props) {
               
               <Modal id="productModal" isOpen={modalState} onRequestClose={() => setmodalState(false)} style={{ overlay: {backgroundColor: 'grey'} }}>
                 <FaTimes title="Close" style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
-                <img src={filteredProduct.image}/>
+                <img src={filteredProduct.image[0]}/>
                 <h1 className="eachProductName"> {filteredProduct.name} </h1> 
                 <p className="eachProductDescription"> {filteredProduct.description} </p>
                 <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
