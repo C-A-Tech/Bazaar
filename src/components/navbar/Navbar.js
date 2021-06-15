@@ -7,6 +7,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faStore } from "@fortawesome/free-solid-svg-icons";
 import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
+import LogOut from '../LogOut/LogOut';
 
 function Navbar(){
   return (
@@ -31,6 +32,7 @@ function Navbar(){
             <FontAwesomeIcon icon={faShoppingBasket} className="nav-icons"/> 
             <button className="nav-buttons"> Basket </button>
           </Link>
+          <LogOut />
         </div>
       </div>
     </nav>
