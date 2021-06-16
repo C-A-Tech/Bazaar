@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 import Cookies from 'universal-cookie';
 
-const cookies = new Cookies
+const cookies = new Cookies()
 let signedInUser = cookies.get('user')
 console.log(signedInUser)
 
@@ -11,7 +11,7 @@ const useBasketRead = () => {
 
   const fetchBasket = async () => {
     let user = signedInUser._id
-    const formData = new FormData
+    const formData = new FormData()
 
     formData.set('user', `${user}`)
 

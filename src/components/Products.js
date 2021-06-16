@@ -35,7 +35,9 @@ function Products(props) {
     <div>
       {/* .............................Displays All Products....................................... */}
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
+        
         (
+          
           <>
             <div className="eachProduct" onClick={ () => selectedProduct(filteredProduct._id) }> 
               
