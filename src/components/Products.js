@@ -13,8 +13,10 @@ const useProducts = () => {
 	};
 
 	useEffect(() => fetchProducts(), []);
-
+console.log(products);
 	return [products];
+
+  
 };
 
 function Products(props) {
@@ -31,14 +33,14 @@ function Products(props) {
   
   
   return (
-    <div>
+    <div id="products-contaner">
       {/* .............................Displays All Products....................................... */}
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
         (
           <>
             <div className="eachProduct" onClick={ () => selectedProduct(filteredProduct._id) }> 
               
-              { filteredProduct.image.map( (image) =><img src={image} /> ) }
+              { filteredProduct.image[0] && <img src={filteredProduct.image[0]} style={{display: "block", margin:"0 auto"}}/> }
               <h1 className="eachProductName"> {filteredProduct.name} </h1> 
               <p className="eachProductDescription"> {filteredProduct.description} </p>
               <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>

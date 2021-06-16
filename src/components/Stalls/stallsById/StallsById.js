@@ -44,9 +44,8 @@ const StallsById = (props) => {
                   <FontAwesomeIcon icon={faStarHalfAlt} />
                   <p>{Math.floor(Math.random()* 10)+ 2} reviews</p>
                 </div>
-                
               </header>
-              
+              <h3>All products</h3>
               <div id="eachStall-products">
                 <Products stall={stall._id} />
               </div> 
