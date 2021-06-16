@@ -12,6 +12,7 @@ import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 import Cookies from 'universal-cookie';
 import ViewStalls from './pages/ViewStalls/ViewStalls';
 import ReactNotifications from 'react-notifications-component';
+import Basket from './components/Basket/ViewBasket';
 
 const cookies = new Cookies();
 
@@ -37,7 +38,7 @@ function App() {
                 <Route path="/my-stalls/{id}" exact component={StallProfilePage}/>
                 <Route path="/home/:sectionTitle" exact component={Home}/>
                 <Route path="/stalls/:id" exact component={ViewStalls}/>
-                             
+                <Route path={`/basket/${signedInUser._id}`} exact component={Basket}/>        
                 
               </div> 
             </Switch>

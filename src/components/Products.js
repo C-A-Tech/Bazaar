@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import { FaTimes, FaCommentDollar } from 'react-icons/fa';
+import AddToBasket from './Basket/AddToBasket';
 
 const useProducts = () => {
 	const [products, setProducts] = useState([]);
@@ -53,7 +54,7 @@ function Products(props) {
                 <p className="eachProductDescription"> {filteredProduct.description} </p>
                 <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
                 <FaCommentDollar title="Haggle" style={{cursor: 'pointer', display: 'inline'}}/>
-                <button className="addToBasket"> Add to Basket </button>
+                <AddToBasket product={ filteredProduct } />
               </Modal>
             ) ) }
           </>

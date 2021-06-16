@@ -15,9 +15,6 @@ function ListProducts(props) {
   const cookies = new Cookies
   let signedInUser = cookies.get('user')
 
-  let requestStallModal = document.getElementById('request-a-stall-modal');
-  const formData = new FormData();
-
 
   const submit = async(event) => {
     event.preventDefault(); 
