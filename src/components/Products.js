@@ -53,6 +53,7 @@ function Products(props) {
                 <p className="eachProductDescription"> {filteredProduct.description} </p>
                 <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
                 <FaCommentDollar title="Haggle" style={{cursor: 'pointer', display: 'inline'}}/>
+                <button className="addToBasket"> Add to Basket </button>
               </Modal>
             ) ) }
           </>
