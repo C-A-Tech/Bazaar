@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import BasketProduct from './BasketProduct';
+import DeleteBasket from './DeleteBasket';
 
 const cookies = new Cookies();
-let signedInUser = cookies.get('user');
+const signedInUser = cookies.get('user');
 
 const useBasketRead = () => {
 	const [basket, setBasket] = useState([]);
@@ -23,7 +24,7 @@ const useBasketRead = () => {
 			.post('https://bazaar-server.herokuapp.com/api/basket', userJson, config)
 			.then((res) => {
 				setBasket(res.data);
-				console.log(res.data.products);
+				console.log(res.data);
 			});
 	};
 
@@ -51,6 +52,8 @@ function Basket() {
 			})}
 
 			{total}
+
+      <DeleteBasket />
 		</div>
 	);
 }
