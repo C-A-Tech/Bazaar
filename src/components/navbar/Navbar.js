@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css'
 import { Link } from "react-router-dom";
 import logo from "./src/logo.png"
+import background from "./src/background.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faStore } from "@fortawesome/free-solid-svg-icons";
@@ -13,8 +14,8 @@ import  { LogOutButton } from '../LogOut/LogOut';
 function Navbar(){
   return (
     <div>
-    <nav className="Navbar">
-      <div className="Navbar container">
+    <nav className="Navbar" style={{ backgroundImage: `url(${background})` }}>
+      <div className="Navbar container" >
         <img src={ logo } className="logo"></img>
         <div className="all-nav-buttons">
           <Link to="/home" className="link">
@@ -44,7 +45,7 @@ function Navbar(){
         </div>
       </div>
     </nav>
-    <div className="Mobile-top-header">
+    <div className="Mobile-top-header" style={{ backgroundImage: `url(${background})` }}>
       <img src={ logo } className="logo"></img>
     </div>
     </div>

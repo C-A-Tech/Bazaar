@@ -1,0 +1,92 @@
+#stallById {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#stallContainer {
+  position: relative;
+  top: 5vh;
+  height: 91vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#stallById .eachStallName {
+  text-align: start;
+  padding-left: 10px;
+  height: 10vh;
+  width: 100%;
+  font-family: "Droid Sans";
+  font-weight: bold;
+  font-size: medium;
+  background-color: rgb(73, 151, 151);
+  background-image: url(./src/background.png);
+  background-repeat:no-repeat;
+  background-position:bottom right;
+  background-size: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  color: white;
+  font-family:fantasy;
+  padding-bottom: 10px;
+}
+
+#stallById .eachStallName h1{
+  margin: 0;
+}
+
+#stallById .eachStallName .ratings p{
+  display: inline;
+  margin-left: 20px;
+}
+
+#eachStall-products {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+
+
+.eachProduct{
+  font-size: x-small;
+  width: 400px;
+  height: 200px;
+  max-width: 200px;
+  margin: 10px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+
+.eachProduct img {
+  height: 150px;
+}
+
+.eachProduct h1 {
+ color: rgb(129, 180, 180);
+ margin: 0 auto;
+ font-size: medium;
+}
+
+.eachProduct p {
+  margin: 0 auto;
+}
+
+@media (min-width: 650px) {
+  
+  #stallContainer {
+    position: relative;
+    top: 8vh;
+    width: 1370px;
+  }
+
+  #stallById .eachStallName {
+    height: 20vh;
+    background-size: 50%;
+  }
+
+}
