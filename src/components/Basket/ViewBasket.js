@@ -22,7 +22,7 @@ const useBasketRead = () => {
 			.post('https://bazaar-server.herokuapp.com/api/basket', userJson, config)
 			.then((res) => {
         setBasket(res.data)
-        console.log(res.data)
+        console.log(res.data.products)
       });
 	};
 
@@ -32,15 +32,30 @@ const useBasketRead = () => {
 
 function Basket() {
 	const [basket] = useBasketRead();
+  const total = basket.total || 0
+  const products  = basket.products || []
 
 	return (
-		<div style={{ marginTop: '40%' }}>
-			{basket !== 'null' ? (
-				<h1> Your Basket is Empty </h1>
-			) : (
-				basket.map((x) => <> {x} </>)
-			)}
-		</div>
+    <div style={{ marginTop: "30px" }}>
+
+      
+
+
+      { total }
+
+      { products.map((b) => {
+        return (
+          <div> 
+            { b.name }
+            { b.price }
+          </div>
+        )
+      })}
+
+
+
+
+    </div>
 	);
 }
 
