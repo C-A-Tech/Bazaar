@@ -16,7 +16,7 @@ import Basket from './components/Basket/ViewBasket';
 
 const cookies = new Cookies();
 
-let signedInUser = cookies.get('user')
+const signedInUser = cookies.get('user') || ''
 
 
 function App() {
