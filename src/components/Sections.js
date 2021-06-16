@@ -22,7 +22,7 @@ const Sections = () => {
 
   const [sections] = useSections();
 
-  const [currentSection, setCurrentSection] = useState("60c0d0b31be0426f8bcb333f")
+  const [currentSection, setCurrentSection] = useState("60c4c6ddc118f71813de7c27")
 	
 
   return(
