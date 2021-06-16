@@ -20,15 +20,15 @@ const useProducts = () => {
 
 function BasketProduct(props) {
 	const [products] = useProducts();
-  const [modalState, setmodalState] = useState(false);
-  const [selectedProductId, setSelectedProductId] = useState('')
-  
-  const selectedProduct = (id) => {
-    setmodalState(true)
-    setSelectedProductId(id)
-  
-    return selectedProductId;
-  }
+	const [modalState, setmodalState] = useState(false);
+	const [selectedProductId, setSelectedProductId] = useState('');
+
+	const selectedProduct = (id) => {
+		setmodalState(true);
+		setSelectedProductId(id);
+
+		return selectedProductId;
+	};
 
 	return (
 		<div>
@@ -37,14 +37,10 @@ function BasketProduct(props) {
 				.map((filteredProduct) => (
 					<>
 						<div onClick={() => selectedProduct(filteredProduct._id)}>
-							{filteredProduct.image.map((image) => (
-								<img src={image} />
-							))}
+							{filteredProduct.image[0] && (
+								<img src={filteredProduct.image[0]} />
+							)}
 							<h1 className='eachProductName'> {filteredProduct.name} </h1>
-							<p className='eachProductDescription'>
-								{' '}
-								{filteredProduct.description}{' '}
-							</p>
 							<p className='eachProductPrice'>
 								{' '}
 								Price: £{filteredProduct.price}{' '}
