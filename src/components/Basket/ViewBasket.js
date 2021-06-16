@@ -36,6 +36,7 @@ function Basket() {
 	const [basket] = useBasketRead();
 	const total = basket.total || 0;
 	const products = basket.products || [];
+	const basketId = basket._id || '';
 
 	if (products.length === 0) {
 		return <div style={{ marginTop: '200px' }}>The basket is empty</div>;
@@ -53,7 +54,7 @@ function Basket() {
 
 			{total}
 
-      <DeleteBasket />
+      <DeleteBasket basketId={basketId}/>
 		</div>
 	);
 }

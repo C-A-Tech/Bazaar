@@ -8,7 +8,8 @@ const cookies = new Cookies();
 const signedInUser = cookies.get('user');
 const userId = signedInUser._id;
 
-function DeleteBasket() {
+function DeleteBasket(props) {
+	console.log(props.basketId)
 	const [redirect, setRedirect] = useState(false);
 
 	const deleteCurrentBasket = async () => {
@@ -21,10 +22,10 @@ function DeleteBasket() {
 
 		await axios
 			.delete(
-				'https://bazaar-server.herokuapp.com/api/basket/delete',
-				// 'http://localhost:5000/api/basket/delete',
-				userJson,
-				config
+				// `https://bazaar-server.herokuapp.com/api/basket/delete/{props.basketId}`,
+				`http://localhost:5000/api/basket/delete/${props.basketId}`,
+				// userJson,
+				// config
 			)
 			.then((res) => res.data)
 			.then((data) => {
