@@ -3,7 +3,7 @@ import axios from 'axios';
 import Products from '../Products'
 import './Stalls.css'
 import { Link } from 'react-router-dom';
-import ViewStalls from '../../pages/ViewStalls/ViewStalls';
+import ViewStalls from '../../pages/view-clicked-stall/ViewStalls';
 
 
 const useStalls = () => {

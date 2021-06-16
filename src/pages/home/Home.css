@@ -12,27 +12,29 @@ justify-content: space-around;
   width: 100vw;
   overflow-x: hidden;
 }
-
+.Sections-wrap{
+  padding-top: 15px;
+  background-color:#c0a44e4d;
+}
 .Sections-heading {
-  background-color: #A56801;
   margin: 0 auto;
   color: white;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 h1.Sections-heading {
-  font-family: 'Caveat', cursive;
+  color: rgb(70, 16, 0);
 }
 h3.Sections-heading {
   font-family: 'Segoe UI';
-  font-size: small;
+  font-size: medium;
+  color: rgb(99, 23, 0);
 }
 
 #Sections {
   max-height: 25vh;
-  min-height: 17vh;
-  background-color: #A56801;
+  min-height: 15vh;
   padding: auto;
   overflow: auto;
   white-space: nowrap;
@@ -40,7 +42,7 @@ h3.Sections-heading {
 
 .eachSection {
   width: 200px;
-  height: 100px;
+  height: 120px;
   max-width: 200px;
   margin: 10px;
   display: inline-block;
@@ -64,6 +66,23 @@ h3.Sections-heading {
     position: relative;
     top: 8vh;
     width: 1370px;
+  }
+  #Sections {
+    max-height: fit-content;
+    min-height: 15vh;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .eachSection {
+    width: 250px;
+    height: 120px;
+    max-width: 250px;
+    margin: 10px;
+    display: inline-block;
+    overflow: hidden;
+  
   }
   /* #Sections{
     overflow-y: scroll;

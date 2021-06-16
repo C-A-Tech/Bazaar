@@ -28,13 +28,36 @@ function LogOut() {
 					style={{ cursor: 'pointer' }}
 					title='Log Out'
 				/>
-				<button className='nav-buttons' onClick={() => destroyCookies()}>
-					{' '}
-					Log Out{' '}
-				</button>
 			</div>
 		</div>
 	);
 }
+
+export function LogOutButton() {
+	const [redirect, setRedirect] = useState(false);
+
+	const destroyCookies = () => {
+		const cookies = new Cookies();
+		cookies.remove('user');
+		setRedirect(true);
+
+		addNotification('Logged out successfully', 'success');
+	};
+
+	if (redirect) {
+		return <Redirect to='/' />;
+	}
+
+	return (
+		<div>
+			<button className='nav-buttons' onClick={() => destroyCookies()}>
+					{' '}
+					Log Out{' '}
+			</button>
+		</div>
+	);
+
+}
+
 
 export default LogOut;
