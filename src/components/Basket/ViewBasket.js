@@ -1,50 +1,47 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-const cookies = new Cookies()
-let signedInUser = cookies.get('user')
-console.log(signedInUser)
+const cookies = new Cookies();
+let signedInUser = cookies.get('user');
 
 const useBasketRead = () => {
-  const [basket, setBasket] = useState([])
+	const [basket, setBasket] = useState([]);
 
-  const fetchBasket = async () => {
-    let user = signedInUser._id
-    const formData = new FormData()
+	const fetchBasket = async () => {
+		const user = signedInUser._id;
 
-    formData.set('user', `${user}`)
+		const userJson = JSON.stringify({
+			user: user
+		});
+		const config = {
+			headers: { 'content-type': 'application/json' }
+		};
 
-    for( var pair of formData.entries() ){
-      console.log(pair[0]+ ', '+ pair[1])
-    }
+		await axios
+			.post('https://bazaar-server.herokuapp.com/api/basket', userJson, config)
+			.then((res) => {
+        setBasket(res.data)
+        console.log(res.data)
+      });
+	};
 
-    const config = {     
-      headers: { 'content-type': 'multipart/form-data' }
-    }
-
-    await axios
-      .post('https://bazaar-server.herokuapp.com/api/basket', formData, config)
-      .then((res) => setBasket(res.data));
-  };
-
-  useEffect(() => fetchBasket(), []);
-  return [basket]
-}
-
-
-
+	useEffect(() => fetchBasket(), []);
+	return [basket];
+};
 
 function Basket() {
-  const [basket] = useBasketRead();
-  return (
-    <div>
-      { (basket !== "null")
-        ? (<h1> Your Basket is Empty </h1>)
-        : ( basket.map( x => <> {x} </> ) )
-      }
-    </div>
-  )
+	const [basket] = useBasketRead();
+
+	return (
+		<div style={{ marginTop: '40%' }}>
+			{basket !== 'null' ? (
+				<h1> Your Basket is Empty </h1>
+			) : (
+				basket.map((x) => <> {x} </>)
+			)}
+		</div>
+	);
 }
 
-export default Basket
+export default Basket;

@@ -31,14 +31,13 @@ function App() {
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
               
-              
               <div className="routes-with-navbar">
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
                 <Route path="/my-stalls/{id}" exact component={StallProfilePage}/>
                 <Route path="/home/:sectionTitle" exact component={Home}/>
                 <Route path="/stalls/:id" exact component={ViewStalls}/>
-                <Route path={`/basket/${signedInUser._id}`} exact component={Basket}/>        
+                <Route path={`/basket/${signedInUser._id}`} exact component={Basket}/>
                 
               </div> 
             </Switch>
