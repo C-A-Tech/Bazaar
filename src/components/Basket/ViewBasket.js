@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import BasketProduct from './BasketProduct'
 
 const cookies = new Cookies();
 let signedInUser = cookies.get('user');
@@ -41,16 +42,18 @@ function Basket() {
       
 
 
-      { total }
+      
 
       { products.map((b) => {
         return (
           <div> 
-            { b.name }
-            { b.price }
+            <BasketProduct productId={ b.productId }/>
           </div>
         )
       })}
+
+      { total }
+
 
 
 

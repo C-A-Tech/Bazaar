@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import { FaTimes, FaCommentDollar } from 'react-icons/fa';
@@ -18,8 +18,8 @@ const useProducts = () => {
 	return [products];
 };
 
-function Products(props) {
-  const [products] = useProducts();
+function BasketProduct(props) {
+	const [products] = useProducts();
   const [modalState, setmodalState] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState('')
   
@@ -29,42 +29,31 @@ function Products(props) {
   
     return selectedProductId;
   }
-  
-  
-  return (
-    <div>
-      {/* .............................Displays All Products....................................... */}
-      {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
-        
-        (
-          
-          <>
-            <div className="eachProduct" onClick={ () => selectedProduct(filteredProduct._id) }> 
-              
-              { filteredProduct.image.map( (image) =><img src={image} /> ) }
-              <h1 className="eachProductName"> {filteredProduct.name} </h1> 
-              <p className="eachProductDescription"> {filteredProduct.description} </p>
-              <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
-            </div>
-            {/* .............................Products Modal....................................... */}
-            { products.filter((product) => product._id === selectedProductId).map((filteredProduct) => (
-              
-              <Modal id="productModal" isOpen={modalState} onRequestClose={() => setmodalState(false)} style={{ overlay: {backgroundColor: 'grey'} }}>
-                <FaTimes title="Close" style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
-                { filteredProduct.image.map( (image) =><img src={image} /> ) }
-                <h1 className="eachProductName"> {filteredProduct.name} </h1> 
-                <p className="eachProductDescription"> {filteredProduct.description} </p>
-                <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
-                <FaCommentDollar title="Haggle" style={{cursor: 'pointer', display: 'inline'}}/>
-                <AddToBasket product={ filteredProduct } />
-              </Modal>
-            ) ) }
-          </>
-        ))
-      }
-    </div>
-  )
-  
+
+	return (
+		<div>
+			{products
+				.filter((product) => product._id === props.productId)
+				.map((filteredProduct) => (
+					<>
+						<div onClick={() => selectedProduct(filteredProduct._id)}>
+							{filteredProduct.image.map((image) => (
+								<img src={image} />
+							))}
+							<h1 className='eachProductName'> {filteredProduct.name} </h1>
+							<p className='eachProductDescription'>
+								{' '}
+								{filteredProduct.description}{' '}
+							</p>
+							<p className='eachProductPrice'>
+								{' '}
+								Price: £{filteredProduct.price}{' '}
+							</p>
+						</div>
+					</>
+				))}
+		</div>
+	);
 }
 
-export default Products
+export default BasketProduct;
