@@ -27,29 +27,29 @@ const StallsByUser = (props) => {
   
   return (
     <div className="allMyStalls">
-      { (stalls.name === "undefined")
+      { (stalls.length === 0)
         ? (<h1 id="noStall"> You Currently Do not Own A Stall <RequestStall /> </h1> )
-        : ( stalls.map( (stall) => (
+        :
 
         <div >
           <header className="mySection"> 
-            <h1 className="myStallName" style={{ color: "black" }}> { <SectionTitle section={stall.section} /> } </h1>
+            <h1 className="myStallName" style={{ color: "black" }}> { <SectionTitle section={stalls[0].section} /> } </h1>
           </header>
 
-          <header className="myStall" style={{ backgroundImage: `url(${stall.image})` }}> 
-            <h1 className="myStallName" style={{ color: "white" }}> { stall.name } </h1>
+          <header className="myStall" style={{ backgroundImage: `url(${ stalls[0].image})` }}> 
+            <h1 className="myStallName" style={{ color: "white" }}> { stalls[0].name } </h1>
           </header>
 
           <div className="myProducts"> 
-          <Products stall={ stall._id } /> 
+          <Products stall={ stalls[0]._id } /> 
           </div> 
 
           <div className="list-products"> 
-              <ListProducts section={stall.section} stall={stall._id} /> 
+              <ListProducts section={stalls[0].section} stall={stalls[0]._id} /> 
           </div>
 
         </div> 
-      ))) 
+       
       
       }
         {/* // return( 
