@@ -63,16 +63,13 @@ function ListProducts(props) {
 					printErrors(msg);
 				} else if (msg === 'product created') {
 					addNotification(msg, 'success');
-					setRedirect(true);
+					window.location.reload();
 				} else {
 					addNotification(msg, 'danger');
 				}
 			});
 	};
 
-	if (redirect) {
-		return <Redirect to='/home' />;
-	}
   
   return (
     <div id="ListProductContainer">
