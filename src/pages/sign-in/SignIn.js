@@ -33,6 +33,7 @@ function SignIn() {
             cookies.set('user', data, { path: '/' });
 						addNotification('Logged in successfully', 'success')
             setRedirect(true)
+						window.location.reload()
           }
         });    
 	};
