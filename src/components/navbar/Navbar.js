@@ -26,10 +26,7 @@ function Navbar(){
             <FontAwesomeIcon icon={faStore} className="nav-icons"/>
             <button className="nav-buttons"> My Stall </button>
           </Link>
-          <Link to="/user/:id" className="link">
-            <FontAwesomeIcon icon={faUserAlt} className="nav-icons"/>
-            <button className="nav-buttons"> My Profile </button>
-          </Link> 
+
           <Link to="/basket/:id" className="link">
             <FontAwesomeIcon icon={faShoppingBasket} className="nav-icons"/> 
             <button className="nav-buttons"> Basket </button>
