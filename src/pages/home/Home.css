@@ -14,7 +14,7 @@ justify-content: space-around;
 }
 .Sections-wrap{
   padding-top: 15px;
-  background-color:#c0a44e4d;
+  background-color:#fcbb4c94;
 }
 .Sections-heading {
   margin: 0 auto;
@@ -72,7 +72,7 @@ h3.Sections-heading {
     min-height: 15vh;
     padding: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
   }
   .eachSection {
