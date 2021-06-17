@@ -1,103 +1,118 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { FaTimes, FaPlus } from 'react-icons/fa';
-import axios from 'axios'
-import Cookies from 'universal-cookie'
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 import addNotification from '../../notices/notice';
 import { Redirect } from 'react-router';
 
 function ListProducts(props) {
-  const [modalState, setmodalState] = useState(false);
-  const [addMoreProducts, setAddMoreProducts] = useState([]);
-  const [newProduct, setNewProduct] = useState([])
-  const [files, setFiles] = useState([])
-  const [redirect, setRedirect] = useState(false);
-  const cookies = new Cookies
-  let signedInUser = cookies.get('user')
+	const [modalState, setmodalState] = useState(false);
+	const [addMoreProducts, setAddMoreProducts] = useState([]);
+	const [newProduct, setNewProduct] = useState([]);
+	const [files, setFiles] = useState([]);
+	const [redirect, setRedirect] = useState(false);
+	const cookies = new Cookies();
+	let signedInUser = cookies.get('user');
 
+	const submit = async (event) => {
+		event.preventDefault();
+		let user = signedInUser._id;
 
-  const submit = async(event) => {
-    event.preventDefault(); 
-    let user = signedInUser._id
-    
-    const formData = new FormData(event.target);
-    setFiles(event.target.files);
+		const formData = new FormData(event.target);
+		setFiles(event.target.files);
 
-    formData.set('user', `${user}`);
-    formData.set('section', `${props.section}`);
-    formData.set('stall', `${props.stall}`);
+		formData.set('user', `${user}`);
+		formData.set('section', `${props.section}`);
+		formData.set('stall', `${props.stall}`);
 
-    formData.set('name', formData.get('name'));
-    formData.set('price', formData.get('price'));
-    formData.set('description', formData.get('description'));
-    
-    for (let i = 0; i < files.length; i++) {
-      formData.append(`images[${i}]`, files[i])
-  }
+		formData.set('name', formData.get('name'));
+		formData.set('price', formData.get('price'));
+		formData.set('description', formData.get('description'));
 
-    for( var pair of formData.entries() ){
-      console.log(pair[0]+ ', '+ pair[1])
-    };
+		for (let i = 0; i < files.length; i++) {
+			formData.append(`images[${i}]`, files[i]);
+		}
 
-    const printErrors = (msg) => {
-      msg.forEach((element) => {
-        addNotification(element.msg, 'danger');
-      });
-    };
+		for (var pair of formData.entries()) {
+			console.log(pair[0] + ', ' + pair[1]);
+		}
 
-    const config = {     
-      headers: { 'content-type': 'multipart/form-data' }
-    };
-    
-    await axios
-    // .post('http://localhost:5000/api/products/create', formData, config)
-    .post('https://bazaar-server.herokuapp.com/api/products/create', formData, config)
-    .then((res) => res.data)
-    .then((data) => data.msg)
-    .then((msg) => {
-      if (Array.isArray(msg)) {
-        printErrors(msg);
-      } else if (msg === 'product created') {
-        addNotification(msg, 'success');
-        setRedirect(true);
-      } else {
-        addNotification(msg, 'danger');
-      }
-    });
-  };
+		const printErrors = (msg) => {
+			msg.forEach((element) => {
+				addNotification(element.msg, 'danger');
+			});
+		};
 
-  if (redirect) {
+		const config = {
+			headers: { 'content-type': 'multipart/form-data' }
+		};
+
+		await axios
+			// .post('http://localhost:5000/api/products/create', formData, config)
+			.post(
+				'https://bazaar-server.herokuapp.com/api/products/create',
+				formData,
+				config
+			)
+			.then((res) => res.data)
+			.then((data) => data.msg)
+			.then((msg) => {
+				if (Array.isArray(msg)) {
+					printErrors(msg);
+				} else if (msg === 'product created') {
+					addNotification(msg, 'success');
+					setRedirect(true);
+				} else {
+					addNotification(msg, 'danger');
+				}
+			});
+	};
+
+	if (redirect) {
 		return <Redirect to='/my-stalls/:id' />;
 	}
-  
-  return (
-    <div>
 
-      {/* .............................Button....................................... */}
-      <div className="addProducts">
-        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } title="List a product" />
-      </div>
-      {/* .............................Button....................................... */}
+	return (
+		<div>
+			{/* .............................Button....................................... */}
+			<div className='addProducts'>
+				<FaPlus
+					style={{ color: 'green', cursor: 'pointer', display: 'inline' }}
+					onClick={() => setmodalState(true)}
+					title='List a product'
+				/>
+			</div>
+			{/* .............................Button....................................... */}
 
-      {/* .............................Modal....................................... */}
-      <Modal 
-        className="list-products-modal"
-        isOpen={modalState} 
-        onRequestClose={() => setmodalState(false)}
-        style={
-          { overlay: {backgroundColor: 'grey'} }
-        }
-      >
-        <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
-        <form onSubmit={submit}>
-          <br /><input type="text" placeholder="Enter Item Name" name="name" /> <br /><br />
-          £ <input type="text" placeholder="Set Item Price" name="price" /> <br /><br />
-          <textarea placeholder="Enter Item Description" name="description" /> <br />
-          <input type="file" multiple name="image" />
-          <input type="submit" value="Submit" />
-        </form>
+			{/* .............................Modal....................................... */}
+			<Modal
+				className='list-products-modal'
+				isOpen={modalState}
+				onRequestClose={() => setmodalState(false)}
+				style={{ overlay: { backgroundColor: 'grey' } }}
+			>
+				<FaTimes
+					style={{ color: 'red', cursor: 'pointer', display: 'inline' }}
+					onClick={() => setmodalState(false)}
+				/>
+				<form onSubmit={submit}>
+					<br />
+					<input type='text' placeholder='Enter Item Name' name='name' /> <br />
+					<br />
+					£ <input type='text' placeholder='Set Item Price' name='price' />{' '}
+					<br />
+					<br />
+					<textarea
+						placeholder='Enter Item Description'
+						name='description'
+					/>{' '}
+					<br />
+					<input type='file' multiple name='image' />
+					<input type='submit' value='Submit' />
+				</form>
 
-        {/* {addMoreProducts.map( (product, index) => {
+				{/* {addMoreProducts.map( (product, index) => {
           return (
             <div key={index} className="moreProducts">  
               <form>
@@ -112,12 +127,11 @@ function ListProducts(props) {
         
         
         <button className="addProducts" onClick={(e) => setAddMoreProducts({ ...addMoreProducts,  })}> Add More Products </button> <br /><br /> */}
-        
-      </Modal> 
+			</Modal>
 
-      {/* .............................Modal....................................... */} 
-    </div>
-  )
+			{/* .............................Modal....................................... */}
+		</div>
+	);
 }
 
-export default ListProducts
+export default ListProducts;
