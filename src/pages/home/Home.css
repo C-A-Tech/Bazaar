@@ -14,7 +14,7 @@ justify-content: space-around;
 }
 .Sections-wrap{
   padding-top: 15px;
-  background-color:#fcbb4c94;
+  
 }
 .Sections-heading {
   margin: 0 auto;
@@ -24,15 +24,16 @@ justify-content: space-around;
 }
 
 h1.Sections-heading {
-  color: rgb(70, 16, 0);
+  color: #5E5443;
 }
 h3.Sections-heading {
   font-family: 'Segoe UI';
   font-size: medium;
-  color: rgb(99, 23, 0);
+  color: #beab71;
 }
 
 #Sections {
+  background-color:#beab71;
   max-height: 25vh;
   min-height: 15vh;
   padding: auto;

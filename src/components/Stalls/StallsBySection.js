@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import Products from '../Products'
+import Products from '../ViewProduct/Products'
 import './Stalls.css'
 import { Link } from 'react-router-dom';
 import ViewStalls from '../../pages/view-clicked-stall/ViewStalls';

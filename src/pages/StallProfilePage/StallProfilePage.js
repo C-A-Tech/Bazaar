@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Products from '../../components/Products';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import RequestStall from '../../components/RequestStall/RequestStall';

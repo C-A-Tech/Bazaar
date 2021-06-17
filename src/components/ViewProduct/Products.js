@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import { FaTimes, FaCommentDollar } from 'react-icons/fa';
+import './Products.css';
 
 const useProducts = () => {
 	const [products, setProducts] = useState([]);
@@ -57,14 +58,28 @@ function Products(props) {
             {/* .............................Products Modal....................................... */}
             { products.filter((product) => product._id === selectedProductId).map((filteredProduct) => (
               
-              <Modal id="productModal" isOpen={modalState} onRequestClose={() => setmodalState(false)} style={{ overlay: {backgroundColor: 'grey'} }}>
-                <FaTimes title="Close" style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
-                { filteredProduct.image.map( (image) =><img src={image} /> ) }
-                <h1 className="eachProductName"> {filteredProduct.name} </h1> 
-                <p className="eachProductDescription"> {filteredProduct.description} </p>
-                <p className="eachProductPrice"> Price: £{filteredProduct.price} </p>
-                <FaCommentDollar title="Haggle" style={{cursor: 'pointer', display: 'inline'}}/>
-                <button className="addToBasket"> Add to Basket </button>
+              <Modal className="productModal" isOpen={modalState} onRequestClose={() => setmodalState(false)} style={{ overlay: {
+                backgroundColor: 'transparent'}}}>
+                <div className="productModalContainer">
+                
+
+                  <header>
+                    <h1 className="eachProductName"> {filteredProduct.name} </h1> 
+                    <FaTimes title="Close" style={{color: 'red', cursor: 'pointer', display: 'inline', fontSize:"2em"}} onClick={() => setmodalState(false)}  />
+                  </header>
+                  <div>
+                    <h3 className="eachProductPrice"> Price: £{filteredProduct.price} </h3>
+                  </div>
+                  <div className="allImages">
+                  { filteredProduct.image.map( (image) =><img src={image} width="200px" height="200px" /> ) }
+                  </div>
+                  <div>
+                    <p className="eachProductDescription"> {filteredProduct.description} </p>
+                  </div>
+                  <div>
+                    <button className="addToBasket"> Add to Basket </button>
+                  </div>
+                </div> 
               </Modal>
             ) ) }
           </>

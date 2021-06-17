@@ -32,8 +32,8 @@ const Sections = () => {
     <div>
       <div className="Sections-wrap" >
         <div className="Sections-heading">
-          <h1 className="Sections-heading">Welcome {signedInUser.first_name}...</h1>
-          <h3 className="Sections-heading">Take a look around!</h3>
+          <h1 className="Sections-heading">Welcome, {signedInUser.first_name}</h1>
+          <h3 className="Sections-heading">Take a look around</h3>
         </div>
         <div id='Sections'>
           {sections.map((section) => {

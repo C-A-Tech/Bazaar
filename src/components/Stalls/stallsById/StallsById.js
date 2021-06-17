@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Products from '../../Products';
+import Products from '../../ViewProduct/Products';
 import './StallsById.css';
 import background from "./src/background.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
