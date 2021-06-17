@@ -4,6 +4,7 @@ import { FaTimes, FaPlus } from 'react-icons/fa';
 import axios from 'axios'
 import Cookies from 'universal-cookie'
 import addNotification from '../../notices/notice';
+import './ListProducts.css';
 import { Redirect } from 'react-router';
 
 function ListProducts(props) {
@@ -74,7 +75,7 @@ function ListProducts(props) {
 	}
   
   return (
-    <div>
+    <div id="ListProductContainer">
 
       {/* .............................Button....................................... */}
       <div className="addProducts" style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } title="List a product" >
@@ -87,19 +88,33 @@ function ListProducts(props) {
         className="list-products-modal"
         isOpen={modalState} 
         onRequestClose={() => setmodalState(false)}
-        style={
-          { overlay: {backgroundColor: 'grey'} }
-        }
+        
       >
-        <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
-        <form onSubmit={submit}>
-          <br /><input type="text" placeholder="Enter Item Name" name="name" /> <br /><br />
-          £ <input type="text" placeholder="Set Item Price" name="price" /> <br /><br />
-          <textarea placeholder="Enter Item Description" name="description" /> <br />
-          <input type="file" multiple name="image" />
-          <input type="submit" value="Submit" />
-        </form>
-
+        <div className="newProductForm">
+          <header>
+            <h1>Add New Product</h1>
+            <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline', fontSize:"2em"}} onClick={() => setmodalState(false)}  />
+          </header>
+          <form onSubmit={submit}>
+            <label>
+            Enter Item Name
+            <input type="text" placeholder="e.g Stainless Steel Pots" name="name" /> 
+            </label><br/>
+            <label>
+            Set Item Price
+            <input type="text" placeholder="10" name="price" /> 
+            </label><br/>
+            <label>
+            Enter Item Description
+            <textarea placeholder="Tefal saucepans used once..." name="description" style={{height:150}}/>
+            </label><br/>
+            <label>
+            Add images 
+            <input type="file" multiple name="image" />
+            </label><br/>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
         {/* {addMoreProducts.map( (product, index) => {
           return (
             <div key={index} className="moreProducts">  

@@ -1,0 +1,118 @@
+.list-products-modal {
+  background-color: rgba(0, 0, 0, 0.438);
+  height: 100%;
+  width: 100%;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+}
+
+.newProductForm {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60vw;
+  height: 70vh;
+}
+
+.newProductForm header {
+  display: flex;
+  justify-content: space-between;
+
+}
+.newProductForm header h1{
+
+}
+
+.newProductForm form {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
+.newProductForm form input, textarea {
+  width: 400px;
+  height: 4vh;
+  font-size: 15px;
+  text-indent: 5%;
+  border-radius: 10px;
+  border: solid #EAEAEA 2px;
+}
+
+.newProductForm form input:focus-visible {
+  outline: none;
+  border: solid #005FCC 2px;
+}
+
+.newProductForm form input[type="file" i] {
+  border: none;
+  border-radius: unset;
+  text-indent: unset;
+  margin: 0.5em;
+
+}
+
+.newProductForm form button {
+  width: 80%;
+  height: 4vh;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+}
+
+.newProductForm form button:hover {
+  background-color: #005FCC;
+  color: white;
+}
+
+
+@media (max-width: 650px) {
+  .list-products-modal{
+    padding-top: 80px; 
+  }
+
+  .newProductForm {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 65vw;
+    height: 68vh;
+    overflow-y: scroll;
+  }
+
+  .newProductForm header {
+    display: flex;
+    justify-content: space-between;
+  
+  }
+
+  .newProductForm header h1{
+    margin-top: 0;
+    font-size: 1.5em;
+  }
+
+  .newProductForm form {
+    width: 60vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+
+  .newProductForm form input, textarea {
+    width: 60vw;
+    height: 4vh;
+    font-size: 15px;
+    text-indent: 5%;
+    border-radius: 10px;
+    border: solid #EAEAEA 2px;
+  }
+}
