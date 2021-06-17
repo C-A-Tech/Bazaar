@@ -3,7 +3,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import { FaTimes, FaCommentDollar } from 'react-icons/fa';
 import './Products.css';
-import AddToBasket from './Basket/AddToBasket';
+import AddToBasket from '../Basket/AddToBasket';
 
 const useProducts = () => {
 	const [products, setProducts] = useState([]);

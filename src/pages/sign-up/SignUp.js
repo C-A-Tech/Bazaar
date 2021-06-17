@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import addNotification from '../../notices/notice';
+import Cookies from 'universal-cookie';
 
 function SignUp() {
 	const [user, setUser] = useState('');
+	const cookies = new Cookies();
 	const [redirect, setRedirect] = useState(false);
 
 	const printErrors = (msg) => {
