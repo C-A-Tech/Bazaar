@@ -6,7 +6,7 @@ import RequestStall from '../../components/RequestStall/RequestStall';
 import './StallProfilePage.css';
 import ListProducts from '../../components/ListProducts/ListProducts';
 import StallsBySection from '../../components/Stalls/StallsBySection';
-import StallsByUser from '../../components/Stalls/StallsByUser';
+import StallsByUser from '../../components/Stalls/stallsByUser/StallsByUser';
 
 const cookies = new Cookies();
 

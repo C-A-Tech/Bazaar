@@ -77,8 +77,8 @@ function ListProducts(props) {
     <div>
 
       {/* .............................Button....................................... */}
-      <div className="addProducts">
-        <FaPlus  style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } title="List a product" />
+      <div className="addProducts" style={{color: 'green', cursor: 'pointer', display: 'inline'}} onClick={ () => setmodalState(true) } title="List a product" >
+        <div>Add an item to stall <FaPlus  /></div>
       </div>
       {/* .............................Button....................................... */}
 
