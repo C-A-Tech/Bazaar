@@ -34,29 +34,25 @@ const useBasketRead = () => {
 
 function Basket() {
 	const [basket] = useBasketRead();
-	const total = basket.total || 0;
-	const products = basket.products || [];
-	const basketId = basket._id || '';
 
-	if (products.length === 0) {
-		return <div style={{ marginTop: '200px' }}>The basket is empty</div>;
-	}
+		return (
+			<div style={{ marginTop: '30px' }}>
+				{(basket.length === 0) ?  <div style={{ marginTop: '200px' }}>The basket is empty</div> : basket.products.map((b) => {
+					return (
+						<div>
+							<BasketProduct productId={b.productId} />
+						</div>
+					);
+				})}
+	
+				{basket.total}
+	
+				<DeleteBasket basketId={basket._id}/>
+			</div>
+		);
 
-	return (
-		<div style={{ marginTop: '30px' }}>
-			{products.map((b) => {
-				return (
-					<div>
-						<BasketProduct productId={b.productId} />
-					</div>
-				);
-			})}
 
-			{total}
 
-      <DeleteBasket basketId={basketId}/>
-		</div>
-	);
 }
 
 export default Basket;
