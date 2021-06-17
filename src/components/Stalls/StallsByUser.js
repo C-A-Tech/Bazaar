@@ -2,32 +2,63 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Products from '../Products'
 import './Stalls.css'
-import { Link } from 'react-router-dom';
 import RequestStall from '../RequestStall/RequestStall';
 import ListProducts from '../ListProducts/ListProducts';
 import SectionTitle from '../SectionTitle';
 
 
-const useStalls = (props) => {
-  const [stalls, setStalls] = useState([]);
+// const useStalls = (props) => {
+//   const [stalls, setStalls] = useState([]);
+//   // console.log(props.user)
 
-  const fetchStalls = async () => {
-    await axios
-      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${props.user}`)
-      .then((res) => setStalls(res.data))
-  };
-  useEffect(() => fetchStalls(), [])
-  return [stalls]
-}
+//   const fetchStalls = async () => {
+//     // console.log('here')
+//     await axios
+//       .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${props.user}`)
+//       // .get(`http://localhost:5000/api/stalls/user/${props.user}`)
+//       .then((res) => {
+//         console.log(res.data)
+//         setStalls(res.data)
+//       })
+//   };
+
+//   // fetchStalls()
+//   // console.log(stalls)
+//   useEffect(() => fetchStalls(), [])
+//   console.log(stalls)
+//   return [stalls]
+// }
+
+const useStalls = (props) => {
+	const [stalls, setStalls] = useState([]);
+  
+
+	const fetchStalls = async () => {
+    // console.log(props.user)
+		await axios
+			.get(`https://bazaar-server.herokuapp.com/api/stalls/user/${props.user}`)
+			.then((res) => {
+        // console.log(res.data)
+        setStalls(res.data)
+      });
+	};
+
+  fetchStalls()
+  console.log(stalls)
+	// useEffect(() => fetchStalls(), []);
+	return [stalls];
+};
+
   
 
 
 const StallsByUser = (props) => {
   const [stalls] = useStalls(props);
+  // console.log(stalls)
   
   return (
     <div className="allMyStalls">
-      { (stalls.length === 0)
+      { (stalls.msg === 'No stalls')
         ? (<h1 id="noStall"> You Currently Do not Own A Stall <RequestStall /> </h1> )
         :
 
