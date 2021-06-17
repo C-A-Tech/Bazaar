@@ -5,6 +5,10 @@
   margin-top: 20px;
 }
 
+#eachStall a{
+  text-decoration: none;
+}
+
 #eachStall header {
   text-align: start;
   padding-left: 10px;

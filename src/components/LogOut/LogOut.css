@@ -1,16 +1,37 @@
-.log-out-buttons {
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
-}
 
-.nav-icons {
+
+/* .nav-icons {
   visibility: visible;
-  font-size: 30px;
-  color: rgb(139, 187, 187);
+  font-size: 25px;
+  color: #beab71;
   margin: auto;
+  margin-top: 10px
 }
 
-.Navbar .nav-buttons {
+.nav-buttons {
   display: none;
 }
+
+
+.link {
+  display: flex;
+  text-decoration: none;
+} */
+/* @media (min-width: 650px) {
+  .log-out-buttons {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-icons {
+    visibility: visible;
+    font-size: 30px;
+    color: rgb(139, 187, 187);
+    margin: auto;
+  }
+
+  .Navbar .nav-buttons {
+    display: none;
+  }
+} */

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import StallsById from '../../components/Stalls/StallsById';
+import StallsById from '../../components/Stalls/stallsById/StallsById';
 import StallsBySection from '../../components/Stalls/StallsBySection';
 
 

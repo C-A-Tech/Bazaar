@@ -2,12 +2,14 @@ import React from 'react';
 import './Navbar.css'
 import { Link } from "react-router-dom";
 import logo from "./src/logo.png"
+import background from "./src/background.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faStore } from "@fortawesome/free-solid-svg-icons";
 import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import LogOut from '../LogOut/LogOut';
+import  { LogOutButton } from '../LogOut/LogOut';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -17,15 +19,15 @@ let signedInUser = cookies.get('user')
 function Navbar(){
   return (
     <div>
-    <nav className="Navbar">
-      <div className="Navbar container">
+    <nav className="Navbar" style={{ backgroundImage: `url(${background})` }}>
+      <div className="Navbar container" >
         <img src={ logo } className="logo"></img>
         <div className="all-nav-buttons">
-          <Link to="/home">
+          <Link to="/home" className="link">
             <FontAwesomeIcon icon={faHome} className="nav-icons"/>
             <button className="nav-buttons"> Browse </button>
           </Link>
-          <Link to="/my-stalls/{id}">
+          <Link to="/my-stalls/{id}" className="link">
             <FontAwesomeIcon icon={faStore} className="nav-icons"/>
             <button className="nav-buttons"> My Stall </button>
           </Link>
@@ -33,15 +35,22 @@ function Navbar(){
             <FontAwesomeIcon icon={faUserAlt} className="nav-icons"/>
             <button className="nav-buttons"> My Profile </button>
           </Link> 
-          <Link to={`/basket/${signedInUser._id}`}>
+          <Link to={`/basket/${signedInUser._id}`} className="link">
             <FontAwesomeIcon icon={faShoppingBasket} className="nav-icons"/> 
             <button className="nav-buttons"> Basket </button>
           </Link>
-          <LogOut />
+          <div>
+            <div className="nav-icons component">
+              <LogOut/>
+            </div>
+            <div className="nav-buttons">
+              <LogOutButton />
+            </div>
+          </div>
         </div>
       </div>
     </nav>
-    <div className="Mobile-top-header">
+    <div className="Mobile-top-header" style={{ backgroundImage: `url(${background})` }}>
       <img src={ logo } className="logo"></img>
     </div>
     </div>
@@ -49,3 +58,4 @@ function Navbar(){
 }
 
 export default Navbar
+// 

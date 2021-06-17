@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import Products from '../../components/Products';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import RequestStall from '../../components/RequestStall/RequestStall';
 import './StallProfilePage.css';
 import ListProducts from '../../components/ListProducts/ListProducts';
 import StallsBySection from '../../components/Stalls/StallsBySection';
-import StallsByUser from '../../components/Stalls/stallsByUser/StallsByUser';
+import StallsByUser from '../../components/Stalls/StallsByUser';
 
 const cookies = new Cookies();
 

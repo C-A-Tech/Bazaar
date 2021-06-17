@@ -10,7 +10,7 @@ import Home from './pages/home/Home';
 import PageNotFound from './pages/PageNotFound';
 import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 import Cookies from 'universal-cookie';
-import ViewStalls from './pages/ViewStalls/ViewStalls';
+import ViewStalls from './pages/view-clicked-stall/ViewStalls';
 import ReactNotifications from 'react-notifications-component';
 import Basket from './components/Basket/ViewBasket';
 

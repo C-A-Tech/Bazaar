@@ -1,0 +1,201 @@
+#stallById {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#stallContainer {
+  position: relative;
+  top: 5vh;
+  height: 91vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#stallById .eachStallName {
+  text-align: start;
+  padding-left: 10px;
+  height: 10vh;
+  width: 100%;
+  font-family: "Droid Sans";
+  font-weight: bold;
+  font-size: medium;
+  background-color: rgb(73, 151, 151);
+  background-image: url(./src/background.png);
+  background-repeat:no-repeat;
+  background-position:bottom right;
+  background-size: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  color: white;
+  font-family:fantasy;
+  padding-bottom: 10px;
+}
+
+#stallById .eachStallName h1{
+  margin: 0;
+}
+
+#stallById .eachStallName .ratings p{
+  display: inline;
+  margin-left: 20px;
+}
+
+#stallById h3 {
+  padding-left: 15px;
+}
+
+#stallById #eachStall-products {
+  overflow: unset;
+  white-space: unset;
+}
+
+#stallById #products-contaner {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 40vw 40vw;
+  grid-auto-rows: 300px;
+  column-gap: 30px;
+  row-gap: 15px;
+}
+
+
+
+#stallById .eachProduct{
+  font-size: x-small;
+  width: 40vw;
+  height: unset;
+  height: 250px;
+  max-width: 40vw;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+#stallById .eachProduct img {
+  width: 40vw;
+  object-fit: cover;
+}
+
+#stallById .eachProduct .product-details .order1 {
+  margin-bottom: 5px;
+  max-height: 2em;
+  overflow: hidden;
+}
+
+#stallById .eachProduct h1 {
+ color: rgb(129, 180, 180);
+ margin: 0 auto;
+ font-size: medium;
+}
+
+#stallById .eachProduct p {
+  margin: 0 auto;
+}
+
+#stallById .eachProduct .product-details .order2 {
+  order: 3;
+  max-height: 4em;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+#stallById .eachProduct .product-details .order3 {
+  order: 2;
+  height: 2em;
+  border: none;
+  border-radius: 20px;
+  background-color:#beab71;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  
+}
+
+@media (min-width: 650px) {
+  
+  #stallById #stallContainer {
+    position: relative;
+    top: 8vh;
+    width: 1370px;
+  }
+
+  #stallById .eachStallName {
+    height: 20vh;
+    background-size: 50%;
+  }
+
+  #stallById #products-contaner {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 30% 30% 30%;
+  grid-auto-rows: 300px;
+  column-gap: 30px;
+  row-gap: 15px;
+  }
+
+  #stallById .eachProduct{
+    font-size: x-small;
+    width: inherit;
+    height: 200px;
+    max-width: 40vw;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+  }
+
+  #stallById .eachProduct .product-img {
+    height: 150;
+    width: inherit;
+    order: 1;
+  }
+
+  #stallById .eachProduct .product-details{
+    order: 2;
+    padding-left: 20px;
+  }
+
+  #stallById .eachProduct img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+
+  #stallById .eachProduct .product-details .order1 {
+    order: 1;
+    margin-bottom: 10px;
+    max-height: 30%;
+    overflow: hidden;
+  }
+
+  #stallById .eachProduct .product-details .order1 h1 {
+    font-size: 2.3em;
+  }
+
+  #stallById .eachProduct .product-details .order2 {
+    order: 3;
+    max-height: 30%;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  #stallById .eachProduct .product-details .order3 {
+    order: 2;
+    height: 10%;
+    border: none;
+    border-radius: 20px;
+    background-color:#beab71;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    
+  }
+
+}
+  
