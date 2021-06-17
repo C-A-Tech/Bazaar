@@ -9,6 +9,7 @@ import RequestStall from '../../RequestStall/RequestStall';
 import ListProducts from '../../ListProducts/ListProducts';
 import SectionTitle from '../../SectionTitle';
 import Cookies from 'universal-cookie';
+import addNotification from '../../../notices/notice';
 
 const cookies = new Cookies()
 const signedInUser = cookies.get('user') || ''
@@ -21,7 +22,11 @@ const useStalls = () => {
   const fetchStalls = async () => {
     await axios
       .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${user}`)
-      .then((res) => setStalls(res.data))
+      .then((res) => {
+        if (Array.isArray(res.data)){
+          setStalls(res.data)
+        }
+      })
   };
   useEffect(() => fetchStalls(), [])
   return [stalls]
@@ -31,6 +36,7 @@ const useStalls = () => {
 
 const StallsByUser = () => {
   const [stalls] = useStalls();
+  console.log(stalls)
   
   return (
     <div id="stallByUser">
@@ -59,10 +65,13 @@ const StallsByUser = () => {
             <div id="eachStall-products"> 
             <Products stall={ stalls[0]._id } /> 
             </div> 
-
-
           </div>  
         )}
+
+
+
+
+
     </div> 
   </div>
   )

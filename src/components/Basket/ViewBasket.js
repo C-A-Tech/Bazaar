@@ -37,7 +37,7 @@ function Basket() {
 
 		return (
 			<div style={{ marginTop: '30px' }}>
-				{(basket.length === 0) ?  <div style={{ marginTop: '200px' }}>The basket is empty</div> : basket.products.map((b) => {
+				{ (basket.length === 0 || basket.length) ?  <div style={{ marginTop: '200px' }}>The basket is empty</div> : basket.products.map((b) => {
 					return (
 						<div>
 							<BasketProduct productId={b.productId} />

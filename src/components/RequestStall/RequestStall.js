@@ -51,16 +51,13 @@ function RequestStall(props) {
           printErrors(msg);
         } else if (msg === 'Stall created') {
           addNotification(msg, 'success');
-          setRedirect(true);
+          window.location.reload();
         } else {
           addNotification(msg, 'danger');
         }
 			});
   };
 
-  if (redirect) {
-		return <Redirect to='/mystall' />;
-	}
   
   return (
     <div>
