@@ -1,5 +1,7 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import addNotification from '../../notices/notice'
+
 
 const cookies = new Cookies();
 const signedInUser = cookies.get('user');
@@ -24,6 +26,8 @@ const submit = async (basket) => {
 			}
 		}
 	);
+
+	addNotification('Product added to basket', 'success');
 };
 
 function AddToBasket(props) {
