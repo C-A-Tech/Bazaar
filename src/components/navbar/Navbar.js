@@ -14,7 +14,7 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-let signedInUser = cookies.get('user')
+let signedInUser = cookies.get('user') || ''
 
 function Navbar(){
   return (

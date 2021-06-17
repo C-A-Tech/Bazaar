@@ -44,7 +44,7 @@ function SignUp() {
 	};
 
 	if (redirect) {
-		return <Redirect to='/home' />;
+		return <Redirect to='/' />;
 	}
 
 	const transition = { duration: 0.5, ease: [0.37, 0, 0.63, 1] };
