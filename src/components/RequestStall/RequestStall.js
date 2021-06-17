@@ -16,7 +16,8 @@ function RequestStall(props) {
   const [redirect, setRedirect] = useState(false);
   const cookies = new Cookies
 
-  let signedInUser = cookies.get('user')
+  const signedInUser = cookies.get('user')
+  const user = signedInUser._id
 
   const printErrors = (msg) => {
 		msg.forEach((element) => {
@@ -26,9 +27,7 @@ function RequestStall(props) {
 
 	const createStall = async (event) => {
     event.preventDefault();
-    let user = signedInUser._id
     const formData = new FormData(event.target);
-
     
     formData.set('user', `${user}`);
     formData.set('name', formData.get('name'));
@@ -60,7 +59,7 @@ function RequestStall(props) {
   };
 
   if (redirect) {
-		return <Redirect to='/my-stalls/:id' />;
+		return <Redirect to='/mystall' />;
 	}
   
   return (

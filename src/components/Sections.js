@@ -26,7 +26,7 @@ const Sections = () => {
   const [currentSection, setCurrentSection] = useState("60c4c6ddc118f71813de7c27")
 	
   const cookies = new Cookies();
-  let signedInUser = cookies.get('user')
+  let signedInUser = cookies.get('user') || ''
 
   return(
     <div>

@@ -14,7 +14,7 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-let signedInUser = cookies.get('user')
+let signedInUser = cookies.get('user') || ''
 
 function Navbar(){
   return (
@@ -27,7 +27,7 @@ function Navbar(){
             <FontAwesomeIcon icon={faHome} className="nav-icons"/>
             <button className="nav-buttons"> Browse </button>
           </Link>
-          <Link to="/my-stalls/{id}" className="link">
+          <Link to="/mystall" className="link">
             <FontAwesomeIcon icon={faStore} className="nav-icons"/>
             <button className="nav-buttons"> My Stall </button>
           </Link>

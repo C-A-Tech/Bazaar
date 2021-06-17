@@ -8,14 +8,19 @@ import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 import RequestStall from '../../RequestStall/RequestStall';
 import ListProducts from '../../ListProducts/ListProducts';
 import SectionTitle from '../../SectionTitle';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies()
+const signedInUser = cookies.get('user') || ''
+const user = signedInUser._id || ''
 
 
-const useStalls = (props) => {
+const useStalls = () => {
   const [stalls, setStalls] = useState([]);
 
   const fetchStalls = async () => {
     await axios
-      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${props.user}`)
+      .get(`https://bazaar-server.herokuapp.com/api/stalls/user/${user}`)
       .then((res) => setStalls(res.data))
   };
   useEffect(() => fetchStalls(), [])
@@ -24,8 +29,8 @@ const useStalls = (props) => {
   
 
 
-const StallsByUser = (props) => {
-  const [stalls] = useStalls(props);
+const StallsByUser = () => {
+  const [stalls] = useStalls();
   
   return (
     <div id="stallByUser">
