@@ -3,6 +3,8 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import BasketProduct from './BasketProduct';
 import DeleteBasket from './DeleteBasket';
+import './Basket.css'
+import EmptyBasket from './src/EmptyBasket.png'
 
 const cookies = new Cookies();
 const signedInUser = cookies.get('user');
@@ -36,18 +38,36 @@ function Basket() {
 	const [basket] = useBasketRead();
 
 		return (
-			<div style={{ marginTop: '30px' }}>
-				{(basket.length === 0) ?  <div style={{ marginTop: '200px' }}>The basket is empty</div> : basket.products.map((b) => {
-					return (
+			<div id="Basket">
+				<div id="BasketContainer"> 
+				
 						<div>
-							<BasketProduct productId={b.productId} />
-						</div>
-					);
-				})}
-	
-				{basket.total}
-	
-				<DeleteBasket basketId={basket._id}/>
+							<header className="basketTitle" > 
+								<h1 style={{ color: "white" }}> Your Basket</h1>
+							</header>
+							
+							<div className="basketBody"> 
+								
+								{(basket.length === 0 || basket.length) ?  
+									<div className="emptyBasket">
+										<img src={EmptyBasket}></img> 
+										<p> Basket empty</p>
+									</div>
+								: basket.products.map((b) => {
+								return (
+									<div className="activeBasket">
+										<BasketProduct productId={b.productId} />
+										{basket.total}
+										<DeleteBasket basketId={basket._id}/>
+									</div>
+									);
+								})}
+				
+							</div>
+									
+						</div>  
+				</div>
+
 			</div>
 		);
 
