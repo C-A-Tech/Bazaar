@@ -3,6 +3,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import { FaTimes, FaCommentDollar } from 'react-icons/fa';
 import './Products.css';
+import AddToBasket from './Basket/AddToBasket';
 
 const useProducts = () => {
 	const [products, setProducts] = useState([]);
@@ -37,7 +38,9 @@ function Products(props) {
     <div id="products-contaner">
       {/* .............................Displays All Products....................................... */}
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
+        
         (
+          
           <>
             <div className="eachProduct" onClick={ () => selectedProduct(filteredProduct._id) }> 
               <div className="product-img">
@@ -77,7 +80,7 @@ function Products(props) {
                     <p className="eachProductDescription"> {filteredProduct.description} </p>
                   </div>
                   <div>
-                    <button className="addToBasket"> Add to Basket </button>
+                    <AddToBasket product={ filteredProduct } />
                   </div>
                 </div> 
               </Modal>

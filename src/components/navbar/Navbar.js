@@ -10,6 +10,11 @@ import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import LogOut from '../LogOut/LogOut';
 import  { LogOutButton } from '../LogOut/LogOut';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+
+let signedInUser = cookies.get('user')
 
 function Navbar(){
   return (
@@ -26,8 +31,11 @@ function Navbar(){
             <FontAwesomeIcon icon={faStore} className="nav-icons"/>
             <button className="nav-buttons"> My Stall </button>
           </Link>
-
-          <Link to="/basket/:id" className="link">
+          <Link to="/user/:id">
+            <FontAwesomeIcon icon={faUserAlt} className="nav-icons"/>
+            <button className="nav-buttons"> My Profile </button>
+          </Link> 
+          <Link to={`/basket/${signedInUser._id}`} className="link">
             <FontAwesomeIcon icon={faShoppingBasket} className="nav-icons"/> 
             <button className="nav-buttons"> Basket </button>
           </Link>

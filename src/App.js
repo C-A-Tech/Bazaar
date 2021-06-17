@@ -12,10 +12,11 @@ import StallProfilePage from './pages/StallProfilePage/StallProfilePage';
 import Cookies from 'universal-cookie';
 import ViewStalls from './pages/view-clicked-stall/ViewStalls';
 import ReactNotifications from 'react-notifications-component';
+import Basket from './components/Basket/ViewBasket';
 
 const cookies = new Cookies();
 
-let signedInUser = cookies.get('user')
+const signedInUser = cookies.get('user') || ''
 
 
 function App() {
@@ -30,14 +31,13 @@ function App() {
               <Route path="/signin" exact component={SignIn}/>  
               <Route path="/"  exact component={LandingPage}/>
               
-              
               <div className="routes-with-navbar">
                 <Navbar />
                 <Route path="/home" exact component={Home}/>
                 <Route path="/my-stalls/{id}" exact component={StallProfilePage}/>
                 <Route path="/home/:sectionTitle" exact component={Home}/>
                 <Route path="/stalls/:id" exact component={ViewStalls}/>
-                             
+                <Route path={`/basket/${signedInUser._id}`} exact component={Basket}/>
                 
               </div> 
             </Switch>
