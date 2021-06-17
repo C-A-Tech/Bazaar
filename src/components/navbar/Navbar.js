@@ -27,7 +27,7 @@ function Navbar(){
             <FontAwesomeIcon icon={faHome} className="nav-icons"/>
             <button className="nav-buttons"> Browse </button>
           </Link>
-          <Link to="/my-stalls/{id}" className="link">
+          <Link to="/mystall" className="link">
             <FontAwesomeIcon icon={faStore} className="nav-icons"/>
             <button className="nav-buttons"> My Stall </button>
           </Link>

@@ -71,7 +71,7 @@ function ListProducts(props) {
 	};
 
 	if (redirect) {
-		return <Redirect to='/my-stalls/:id' />;
+		return <Redirect to='/home' />;
 	}
   
   return (

@@ -59,7 +59,7 @@ function RequestStall(props) {
   };
 
   if (redirect) {
-		return <Redirect to='/my-stalls/:id' />;
+		return <Redirect to='/mystall' />;
 	}
   
   return (
