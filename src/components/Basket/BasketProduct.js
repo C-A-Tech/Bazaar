@@ -36,15 +36,15 @@ function BasketProduct(props) {
 				.filter((product) => product._id === props.productId)
 				.map((filteredProduct) => (
 					<>
-						<div onClick={() => selectedProduct(filteredProduct._id)}>
-							{filteredProduct.image[0] && (
-								<img src={filteredProduct.image[0]} />
+						<div onClick={() => selectedProduct(filteredProduct._id)} className="eachCheckoutProduct">
+							<div className="checkoutImg">	{filteredProduct.image[0] && (
+								 <img src={filteredProduct.image[0]} />
 							)}
-							<h1 className='eachProductName'> {filteredProduct.name} </h1>
-							<p className='eachProductPrice'>
-								{' '}
-								Price: £{filteredProduct.price}{' '}
-							</p>
+							</div>
+							<div className='checkoutProductName'> <h1>{filteredProduct.name}</h1></div>
+							<div className='checkoutProductPrice'>
+								<p>Price: £{filteredProduct.price}</p>
+							</div>
 						</div>
 					</>
 				))}

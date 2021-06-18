@@ -57,14 +57,18 @@ function Basket() {
 								return (
 									<div className="activeBasket">
 										<BasketProduct productId={b.productId} />
-										{basket.total}
-										<DeleteBasket basketId={basket._id}/>
 									</div>
 									);
 								})}
-				
+								{(basket.total > 0) &&
+								<div className="checkout">
+									<h1>Total: £{basket.total}</h1>
+									<DeleteBasket basketId={basket._id}/>
+								</div>
+								}
 							</div>
-									
+
+
 						</div>  
 				</div>
 
