@@ -5,6 +5,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import addNotification from '../../notices/notice';
 import { Redirect } from 'react-router';
+import './RequestStall.css';
 
 
 
@@ -72,41 +73,38 @@ function RequestStall(props) {
       <div className="stall-modal">
         
         <Modal
-          id="request-a-stall-modal"
+          classname="request-a-stall-modal"
           isOpen={modalState} 
           onRequestClose={() => setmodalState(false)} 
           onAfterOpen= {() => setNewStall({ ...newStall, user: signedInUser._id })}
-          style={
-            { overlay: {backgroundColor: 'grey'} }
-          } 
         >
-        <form  onSubmit={(e) => createStall(e)}>
-          <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
-          
-        
-          <input type="text" placeholder="Enter Stall Name" name="name" /> 
-          <br /><br />
+        <div className="newStallForm">
+          <header>
+            <h1>Request a New Stall</h1>
+            <FaTimes style={{color: 'red', cursor: 'pointer', display: 'inline'}} onClick={() => setmodalState(false)}  />
+          </header>
+          <form  onSubmit={(e) => createStall(e)}>
+            <input type="text" placeholder="Enter Stall Name" name="name" /> 
+            <br /><br />
+            <select  name="section">
+              <option default>Select an appropriate section</option>
 
-          
+              <option value="60c4c6ddc118f71813de7c27" name="antiques">Antiques</option>
+              <option value="60c4c70ec118f71813de7c28" name="carpets_and_rugs">Carpets and Rugs</option>
+              <option value="60c4c737c118f71813de7c29" name="ceramics">Ceramics</option>
+              <option value="60c4c773c118f71813de7c2a" name="clothes">Clothes</option>
+              <option value="60c4c7b1c118f71813de7c2b" name="electronics">Electronics</option>
+              <option value="60c4c7e4c118f71813de7c2c" name="furnitures">Furnitures</option>
+              <option value="60c4c804c118f71813de7c2d" name="home_decor">Home Decor</option>
+              <option value="60c4c825c118f71813de7c2e" name="jewellery">Jewellery</option>
 
-          <select  name="section">
-            <option default>Select an appropriate section</option>
+            </select> <br /><br /><br />
 
-            <option value="60c4c6ddc118f71813de7c27" name="antiques">Antiques</option>
-            <option value="60c4c70ec118f71813de7c28" name="carpets_and_rugs">Carpets and Rugs</option>
-            <option value="60c4c737c118f71813de7c29" name="ceramics">Ceramics</option>
-            <option value="60c4c773c118f71813de7c2a" name="clothes">Clothes</option>
-            <option value="60c4c7b1c118f71813de7c2b" name="electronics">Electronics</option>
-            <option value="60c4c7e4c118f71813de7c2c" name="furnitures">Furnitures</option>
-            <option value="60c4c804c118f71813de7c2d" name="home_decor">Home Decor</option>
-            <option value="60c4c825c118f71813de7c2e" name="jewellery">Jewellery</option>
+            <input type="file" name="image" /> 
 
-          </select> <br /><br /><br />
-
-          <input type="file" name="image" /> 
-
-          <button type='submit'>Submit</button>
-        </form>
+            <button type='submit'>Submit</button>
+          </form>
+        </div>
         </Modal>
         
         
