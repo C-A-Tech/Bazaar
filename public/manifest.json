@@ -23,8 +23,8 @@
       "sizes": "512x512"
     }
   ],
-  "theme_color": "#2f0059",
-  "background_color": "#FFFFFF",
+  "theme_color": "#C0A34E",
+  "background_color": "#C0A34E",
   "orientation": "portrait",
   "related_applications": [],
   "prefer_related_applications": "false",

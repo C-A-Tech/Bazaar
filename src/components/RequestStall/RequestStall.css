@@ -1,29 +1,16 @@
-
-
-.request-a-stall-modal, overlay {
-  background-color: rgba(0, 0, 0, 0.438);
-  height: 100%;
-  width: 100%;
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 100px; 
-  left: 0;
-  top: 0;
-  border: none;
-}
-
 .newStallForm {
   background-color: #fefefe;
   margin: auto;
+  margin-top: 50px;
   padding: 20px;
-  border: 1px solid #888;
+  border: none;
   width: 60vw;
   height: 70vh;
 }
 
 .newStallForm header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
 }
 .newStallForm header h1{
@@ -39,7 +26,18 @@
   margin: 0 auto;
 }
 
-.newStallForm form input, textarea {
+.newStallForm form select {
+  width: 410px;
+  height: 4.5vh;
+  font-size: 15px;
+  text-indent: 5%;
+  border-radius: 10px;
+  border: solid #EAEAEA 2px;
+  color: #757373;
+}
+
+
+.newStallForm form input {
   width: 400px;
   height: 4vh;
   font-size: 15px;
@@ -62,7 +60,7 @@
 }
 
 .newStallForm form button {
-  width: 80%;
+  width: 400px;
   height: 4vh;
   border-radius: 20px;
   border: none;
@@ -84,10 +82,10 @@
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: none;
     width: 65vw;
     height: 68vh;
-    overflow-y: scroll;
+    overflow-y: hidden;
   }
 
   .newStallForm header {
@@ -110,7 +108,17 @@
     margin: 0 auto;
   }
 
-  .newStallForm form input, textarea {
+  .newStallForm form select {
+    width: 62vw;
+    height: 4.5vh;
+    font-size: 15px;
+    text-indent: 5%;
+    border-radius: 10px;
+    border: solid #EAEAEA 2px;
+    color: #757373;
+  }
+
+  .newStallForm form input {
     width: 60vw;
     height: 4vh;
     font-size: 15px;
@@ -118,4 +126,13 @@
     border-radius: 10px;
     border: solid #EAEAEA 2px;
   }
+
+  .newStallForm form button {
+    width: 60vw;
+    height: 4vh;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+  }
+  
 }

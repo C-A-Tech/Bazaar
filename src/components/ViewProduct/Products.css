@@ -87,4 +87,8 @@
     font-size: medium;
   }
 
+  .eachProductDescription {
+    max-width: 60vw;
+    word-wrap: break-word;
+  }
 }
