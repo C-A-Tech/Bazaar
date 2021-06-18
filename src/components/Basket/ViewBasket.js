@@ -40,7 +40,6 @@ function Basket() {
 		return (
 			<div id="Basket">
 				<div id="BasketContainer"> 
-				
 						<div>
 							<header className="basketTitle" > 
 								<h1 style={{ color: "white" }}> Your Basket</h1>

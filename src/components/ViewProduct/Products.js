@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import { FaTimes, FaCommentDollar } from 'react-icons/fa';
@@ -15,27 +15,27 @@ const useProducts = () => {
 	};
 
 	useEffect(() => fetchProducts(), []);
-console.log(products);
+	console.log(products);
 	return [products];
-
-  
 };
 
 function Products(props) {
-  const [products] = useProducts();
-  const [modalState, setmodalState] = useState(false);
-  const [selectedProductId, setSelectedProductId] = useState('')
-  
-  const selectedProduct = (id) => {
-    setmodalState(true)
-    setSelectedProductId(id)
-  
-    return selectedProductId;
-  }
-  
-  
+	const [products] = useProducts();
+	const [modalState, setmodalState] = useState(false);
+	const [selectedProductId, setSelectedProductId] = useState('');
+
+	const selectedProduct = (id) => {
+		setmodalState(true);
+		setSelectedProductId(id);
+
+		return selectedProductId;
+	};
   return (
-    <div id="products-contaner">
+    <div id="products-contaner" onClick={() => {
+      if (modalState) {
+        setmodalState(false);
+      }
+    }}>
       {/* .............................Displays All Products....................................... */}
       {products.filter((product) => product.stall === props.stall).map(filteredProduct => 
         
@@ -91,7 +91,7 @@ function Products(props) {
       }
     </div>
   )
-  
+	
 }
 
-export default Products
+export default Products;
