@@ -1,0 +1,143 @@
+#Basket {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#Basket #BasketContainer{
+  position: relative;
+  top: 5vh;
+  height: 91vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#Basket .basketTitle {
+  text-align: start;
+  padding-left: 10px;
+  height: 20vh;
+  width: 100%;
+  font-family: "Droid Sans";
+  font-weight: bold;
+  font-size: large;
+  background-color: #214E34;
+  background-image: url(./src/background.png);
+  background-repeat:no-repeat;
+  background-position:bottom right;
+  background-size: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  color: white;
+  font-family:fantasy;
+}
+
+#Basket .basketTitle  h1{
+  margin: 0;
+}
+
+.emptyBasket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.emptyBasket img {
+  width: 200px;
+}
+
+.emptyBasket p {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.253);
+  margin: 0;
+}
+
+.basketBody {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  margin-bottom: 4vh;
+}
+
+.activeBasket {
+  height: 350px;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+}
+.activeBasket .checkoutImg {
+  display: flex;
+  justify-content: center;
+}
+
+.activeBasket h1 {
+  font-size: 0.9em;
+}
+
+.activeBasket img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.checkout {
+  background-color: #214E34;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.checkout h1 {
+  margin-right: 30px;
+  font-size: large;
+}
+
+.checkout button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 18px;
+  padding: 10px;
+}
+
+@media (min-width: 650px) {
+  
+  #Basket #BasketContainer {
+    position: relative;
+    top: 8vh;
+    width: 1370px;
+  }
+
+  .basketBody {
+    margin-top: 40px;
+  }
+
+  .activeBasket {
+    height: 150px;
+    width: 50vw;
+  }
+
+  .eachCheckoutProduct {
+    display: flex;
+
+  }
+
+  .checkoutProductName {
+    max-width: 400px;
+  }
+
+}
+  
