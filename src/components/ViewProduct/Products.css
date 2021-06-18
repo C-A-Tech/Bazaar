@@ -57,9 +57,11 @@
   border: none;
   font-size: 15px;
   background-color: #8EA604;
-  color: white;
+  color: white;  
+}
 
-  
+.eachProductName {
+  max-width: 715px;
 }
 
 @media (max-width: 650px) {
@@ -72,7 +74,6 @@
     width: 65vw;
     height: 68vh;
     overflow-y: scroll;
-
   }
 
   .newProductForm header {
@@ -81,5 +82,9 @@
   
   }
 
+  .eachProductName {
+    max-width: 250px;
+    font-size: medium;
+  }
 
 }

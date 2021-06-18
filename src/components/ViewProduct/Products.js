@@ -77,6 +77,7 @@ function Products(props) {
                   { filteredProduct.image.map( (image) =><img src={image} width="200px" height="200px" /> ) }
                   </div>
                   <div>
+                    <h4>Description:</h4>
                     <p className="eachProductDescription"> {filteredProduct.description} </p>
                   </div>
                   <div>
